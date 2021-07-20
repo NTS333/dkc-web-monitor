@@ -33,7 +33,7 @@ import {
 import Maynghien from "./MaynghienTho1";
 import SwitchBase from "@material-ui/core/internal/SwitchBase";
 import { Alert } from "@material-ui/lab";
-import { tagsFileState, tagsState } from "../stateManager";
+import { tagsFileState, tagsState } from "../../stateManager";
 const useStyles = makeStyles(theme=>({
   dialogroot: {
     backgroundColor: "rgba(0,0,0,0.5)",

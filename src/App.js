@@ -1,7 +1,11 @@
 import Dashboard from "./pages/Dashboard";
 import Login from "./pages/Login";
 import { Switch,Route,Link,Redirect } from 'react-router-dom';
+import { useEffect } from "react";
+
+
 function App() {
+ 
   return (
     // style={{ minHeight: '100vh',minWidth:'100vw' }}
     <div className="App"  >

@@ -38,7 +38,7 @@ function LoDot() {
               container
               spacing={2}
               direction="row"
-              justify="space-between"
+              justifyContent="space-between"
               alignItems="center"
               alignContent="center"
               wrap="wrap"

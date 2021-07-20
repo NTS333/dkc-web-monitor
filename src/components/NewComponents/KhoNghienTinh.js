@@ -528,6 +528,7 @@ function KhoNghienTinh(props) {
                         src={VTFull_Off}
                         width={100}
                         className={classes.xylanh_icon_Forward}
+                        style={{transform:rotate(90)}}
                       ></img>
                     </div>
                     <div>

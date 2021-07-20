@@ -269,7 +269,7 @@ export default function ControlPanel_KhoNTho_Sausay(props) {
             container
             spacing={2}
             direction="row"
-            justify="center"
+            justifyContent="center"
             alignItems="center"
             alignContent="center"
             wrap="wrap"
@@ -363,7 +363,7 @@ const Panel = (props) => {
              
               <Grid container   
               spacing={1}
-              justify="space-between"
+              justifyContent="space-between"
               alignItems="center">
                   <Grid item xs={12} sm={12} className = {classes.gridItemCenter}>
                     <Typography variant="h5" color="default">VÍT TẢI CẤP LIỆU 1</Typography>
@@ -448,7 +448,7 @@ const Panel = (props) => {
               container
               spacing={2}
               direction="row"
-              justify="center"
+              justifyContent="center"
               alignItems="center"
               // alignContent="center"
             >

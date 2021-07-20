@@ -33,9 +33,7 @@ const useStyles = makeStyles({
     width: "auto",
     minWidth: 350,
     // minWidth:480
-    background: '#18191a',
-    borderRadius: 12,
-    padding: 0
+    background: '#18191a'
   },
   cardheader_root: {
     // backgroundColor: "#0277bd",
@@ -48,9 +46,7 @@ const useStyles = makeStyles({
   },
   card_actionArea: {
     margin: 0,
-    padding: 5,
-    border: 'solid gray 1px',
-    marginTop:-30
+    padding: 0,
   },
   card_header: {
     textAlign: "center",
@@ -67,11 +63,7 @@ const useStyles = makeStyles({
     color: "#333 !important",
   },
   status_container: {
-    margin: 0,
-    display: 'flex',
-    justifyContent: 'center',
-    padding: 0,
-
+    marginTop: 10,
     // marginRight:1
   },
   status_item__Active: {
@@ -79,7 +71,6 @@ const useStyles = makeStyles({
     padding: 10,
     margin: 5,
     background: "#b28900",
-    textAlign: 'center'
   },
   status_item__InActive: {
     // border:'.5px solid #333',
@@ -94,22 +85,24 @@ const useStyles = makeStyles({
     background: "#2d6a4f",
     color: 'white',
     fontWeight: 'bold'
-
   },
   status_item__InActive_S: {
     // border:'.5px solid #333',
     padding: 10,
     margin: 5,
     background: "transperance",
+
+
   },
   title: {
     background: '#5f89d6',
-    padding: 10,
-    margin: 0,
-    display: 'flex',
-    justifyContent: 'center',
+    padding: 5,
+    marginTop: 0,
+    // display: 'flex',
+    // justifyContent: 'center',
     color: 'white',
-    fontWeight: 'bold'
+    fontWeight: 'bold',
+    fontSize: '1rem'
   },
   // statusMachine:{
   //   backgroundColor:'red',
@@ -119,7 +112,7 @@ const useStyles = makeStyles({
   // }
 });
 
-function MaynghienTho1(props) {
+function MayNghienTinh(props) {
   const handleOpenCtrPanel = (e) => {
     setisOpen(true);
   };
@@ -145,18 +138,18 @@ function MaynghienTho1(props) {
   const [PL_SCADA, setPL_SCADA] = useState(false);
   const [PL_Auto, setPL_Auto] = useState(false);
   const [PL_Manual, setPL_Manual] = useState(false);
-  const [PL_Btai, setPL_Btai] = useState(false);
-  const [PL_BTT, setPL_BTT] = useState(false);
+  const [PL_VT, setPL_VT] = useState(false);
+  const [PL_VTTG, setPL_VTTG] = useState(false);
   const [PL_Qhut, setPL_Qhut] = useState(false);
   const [PL_FW_MN, setPL_FW_MN] = useState(false);
   const [PL_RV_MN, setPL_RV_MN] = useState(false);
-  const [PL_OVL_Btai, setPL_OVL_Btai] = useState(false);
-  const [PL_OVL_BTT, setPL_OVL_BTT] = useState(false);
+  const [PL_OVL_VT, setPL_OVL_VT] = useState(false);
+  const [PL_OVL_VTTG, setPL_OVL_VTTG] = useState(false);
   const [PL_OVL_MN, setPL_OVL_MN] = useState(false);
   const [PL_OVL_Qhut, setPL_OVL_Qhut] = useState(false);
-  const [Result_Hz_BT1, setResult_Hz_BT1] = useState(null);
+  const [Result_Hz_VT, setResult_Hz_VT] = useState(null);
   const [Current_Digital_MN, setCurrent_Digital_MN] = useState(null);
-  const [Current_Digital_BT, setCurrent_Digital_BT] = useState(null);
+  const [Current_Digital_VT, setCurrent_Digital_VT] = useState(null);
   const [Current_Digital_QH, setCurrent_Digital_QH] = useState(null);
   const [TempLeft_MN, setTempLeft_MN] = useState(null);
   const [TempRight_MN, setTempRight_MN] = useState(null);
@@ -267,7 +260,7 @@ function MaynghienTho1(props) {
 
   useEffect(() => {
     const timer = setInterval(() => {
-      console.log('May nghien tho 1');
+      console.log('May nghien tinh ');
       console.log(prefix)
       window.subcribeTag && window.subcribeTag?.forEach(tag => {
         let value = tag.Value
@@ -290,11 +283,11 @@ function MaynghienTho1(props) {
           case prefix + 'PL_RV_MN':
             setPL_RV_MN(value == "1");
             break;
-          case prefix + 'PL_BT':
-            setPL_Btai(value == '1')
+          case prefix + 'PL_VT':
+            setPL_VT(value == '1')
             break;
-          case prefix + 'PL_BTT':
-            setPL_BTT(value == '1')
+          case prefix + 'PL_VTTG':
+            setPL_VTTG(value == '1')
             break;
           case prefix + 'PL_QH':
             setPL_Qhut(value == '1')
@@ -302,11 +295,11 @@ function MaynghienTho1(props) {
           case prefix + 'PL_OVL_MN':
             setPL_OVL_MN(value == '1')
             break;
-          case prefix + 'PL_OVL_BT':
-            setPL_OVL_Btai(value == '1')
+          case prefix + 'PL_OVL_VT':
+            setPL_OVL_VT(value == '1')
             break;
-          case prefix + 'PL_OVL_BTT':
-            setPL_OVL_BTT(value == '1')
+          case prefix + 'PL_OVL_VTTG':
+            setPL_OVL_VTTG(value == '1')
             break;
           case prefix + 'PL_OVL_QH':
             setPL_OVL_Qhut(value == '1')
@@ -314,14 +307,14 @@ function MaynghienTho1(props) {
           case prefix + 'Current_Digital_MN':
             setCurrent_Digital_MN(value)
             break;
-          case prefix + 'Current_Digital_BT':
-            setCurrent_Digital_BT(value)
+          case prefix + 'Current_Digital_VT':
+            setCurrent_Digital_VT(value)
             break;
           case prefix + 'Current_Digital_QH':
             setCurrent_Digital_QH(value)
             break;
-          case prefix + 'Hz_BT':
-            setResult_Hz_BT1(value)
+          case prefix + 'Hz_VT':
+            setResult_Hz_VT(value)
             break;
           case prefix + 'Tem_Left_MN':
             setTempLeft_MN(value)
@@ -342,7 +335,7 @@ function MaynghienTho1(props) {
       });
 
 
-    }, 3000);
+    }, 1000);
 
     return () => {
       clearInterval(timer)
@@ -355,14 +348,10 @@ function MaynghienTho1(props) {
         classes={{
           root: classes.card_root,
         }}
-        style={{ border: Alarm_HT ? '5px solid red' : '' }}
       >
         <CardHeader
-          title={
-            <Typography variant='h6' className={classes.title}>{title}</Typography>
-          }
-
-          subheader={
+          title={title}
+          action={
             <>
               <div className={classes.status_container}>
                 <span
@@ -433,7 +422,7 @@ function MaynghienTho1(props) {
             title: classes.card_title,
           }}
         ></CardHeader>
-        <CardContent >
+        <CardContent style={{ border: Alarm_HT ? '5px solid red' : '' }}>
           <CardActionArea
             onClick={handleOpenCtrPanel}
             className={classes.card_actionArea}
@@ -489,7 +478,7 @@ function MaynghienTho1(props) {
               <Grid item xs={6} style={{ textAlign: "center" }}>
                 <CardMedia>
                   <img
-                    src={PL_OVL_Btai ? MtFault : (PL_Btai ? MtOn : MtOff)}
+                    src={PL_OVL_VT ? MtFault : (PL_VT ? MtOn : MtOff)}
                     width="50%"
                     height="50px"
                     aria-valuetext="Control_NTho1"
@@ -521,13 +510,13 @@ function MaynghienTho1(props) {
                   </div>
                 </CardMedia>
                 <Typography style={{ color: "#c1ecaa" }}>
-                  Đ/cơ băng tải
+                  Đ/cơ vít tải
                 </Typography>
               </Grid>
               <Grid item xs={6} style={{ textAlign: "center", marginTop: 10 }}>
                 <CardMedia>
                   <img
-                    src={PL_OVL_BTT ? MtFault : (PL_BTT ? MtOn : MtOff)}
+                    src={PL_OVL_VTTG ? MtFault : (PL_VTTG ? MtOn : MtOff)}
                     width="50%"
                     height="50px"
                   ></img>
@@ -558,7 +547,7 @@ function MaynghienTho1(props) {
                   </div>
                 </CardMedia>
                 <Typography style={{ color: "#c1ecaa" }}>
-                  Đ/cơ băng tải từ
+                  Đ/cơ vít tải trung gian
                 </Typography>
               </Grid>
               <Grid item xs={6} style={{ textAlign: "center", marginTop: 10 }}>
@@ -646,13 +635,13 @@ function MaynghienTho1(props) {
                   <Typography>Dòng motor</Typography>
                 </Grid>
                 <Grid item xs={6} style={{ textAlign: "center", background: '#fffa', color: 'black', height: 40, display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-                  <Typography ><b>{Current_Digital_BT}</b> A</Typography>
+                  <Typography ><b>{Current_Digital_VT}</b> A</Typography>
                 </Grid>
                 <Grid item xs={6} style={{ textAlign: "center" }}>
                   <Typography>Tần số</Typography>
                 </Grid>
                 <Grid item xs={6} style={{ textAlign: "center", background: '#fffa', color: 'black', height: 40, display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-                  <Typography ><b>{Result_Hz_BT1}</b> Hz</Typography>
+                  <Typography ><b>{Result_Hz_VT}</b> Hz</Typography>
                 </Grid>
 
               </Grid>
@@ -697,7 +686,7 @@ function MaynghienTho1(props) {
     </>
   );
 }
-// MaynghienTho1.propTypes = {
+// MayNghienTinh.propTypes = {
 //   tagList: PropTypes.object,
 // };
-export default MaynghienTho1;
+export default MayNghienTinh;

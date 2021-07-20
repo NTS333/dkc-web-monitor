@@ -15,9 +15,9 @@ import {
   Select,
 } from "@material-ui/core";
 import React, { useState, useEffect, useCallback } from "react";
-import MtOn from "../assets/images/Motor_On.svg";
-import MtOff from "../assets/images/Motor_Off.svg";
-import MtFault from "../assets/images/Motor_Fault.svg";
+import MtOn from "../../assets/images/Motor_On.svg";
+import MtOff from "../../assets/images/Motor_Off.svg";
+import MtFault from "../../assets/images/Motor_Fault.svg";
 
 import ToggleButton from "@material-ui/lab/ToggleButton";
 import ToggleButtonGroup from "@material-ui/lab/ToggleButtonGroup";
@@ -28,11 +28,11 @@ import { Label } from "@material-ui/icons";
 import { orange } from "@material-ui/core/colors";
 import ControlPanel_MayNghien from "./ControlPanel_MayNghien";
 import {  useRecoilValue } from "recoil";
-import { tagsFileState, tagsState } from "../stateManager";
+import { tagsFileState, tagsState } from "../../stateManager";
 import LoopIcon from "@material-ui/icons/Loop";
 import AutorenewIcon from "@material-ui/icons/Autorenew";
 import PropTypes from "prop-types";
-import { readTagFile } from "../utils/ReadTagFile";
+
 
 const useStyles = makeStyles({
   card_root: {
@@ -97,7 +97,7 @@ const InitializeTagValue = () => {
 
   //    setisON(tag.Properties.Value == "1");
   // }
-  const tagList = readTagFile();
+  const tagList = useRecoilValue(tagsFileState);
   let listtagOjb = [];
 
   let tagObj = {};
@@ -255,10 +255,23 @@ function MaynghienTho2(props) {
     // //  console.log(tag&& tag.Value);
     //
   };
+  // useEffect(() => {
+  //   getTagValue();
+  //   //  console.log(NTho1Tags);
+  // }, [tags]);
   useEffect(() => {
-    getTagValue();
-    //  console.log(NTho1Tags);
-  }, [tags]);
+  
+    const timer = setInterval(()=>{
+      console.log('May nghien tho 1');
+      console.log(window.subcribeTag)
+
+    },1000);
+    
+    return () => {
+      clearInterval(timer)
+    }
+  }, [])
+
   return (
     <>
       <Card

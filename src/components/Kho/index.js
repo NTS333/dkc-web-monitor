@@ -5,9 +5,11 @@ import SSwitch from '../SSwitch'
 import { makeStyles } from '@material-ui/core/styles';
 import { blue, green } from '@material-ui/core/colors'
 import { width } from '@material-ui/system';
+import KhoNghienTho_SauSay from '../NewComponents/KhoNghienTho_Sausay'
+import KhoNghienTho from '../NewComponents/KhoNghienTho';
 const useStyles = makeStyles({
     card: {
-        background: '#dcd7d7',
+        background: '#18191a',
         maxWidth: 600,
         minWidth:300,
         width:500
@@ -33,13 +35,13 @@ function Kho() {
     const classes = useStyles();
     const prefix = 'Local Station/Control/Device1'
     return (
-        <div style={{ position: 'relative', margin: '0 auto', marginTop: 60,marginLeff:20,display:'flex',justifySelf:'center' }}>
+        <div style={{ position: 'relative', margin: '0 auto', marginTop: 50,marginLeff:20,display:'flex',justifySelf:'center' }}>
             
         <Grid
           container
           spacing={3}
           direction="row"
-          justify="space-around"
+          justifyContent="space-around"
           alignItems="flex-start"
           alignContent="center"
           wrap="wrap"
@@ -55,14 +57,7 @@ function Kho() {
                 <Card className={classes.card}>
                     <CardContent >
                         <Typography variant='h6' className={classes.title}>KHO NGHIỀN THÔ</Typography>
-                        <SSwitch tagName='Tag1' prefix={prefix} caption='BƠM DẦU 1'></SSwitch>
-                        <SSwitch tagName='Tag1' prefix={prefix} caption='BƠM DẦU 2'></SSwitch>
-                        <SSwitch tagName='Tag1' prefix={prefix} caption='CHẠY THUẬN VÍT TẢI CẤP LIỆU 1'></SSwitch>
-                        <SSwitch tagName='Tag1' prefix={prefix} caption='CHẠY NGHỊCH VÍT TẢI CẤP LIỆU 1'></SSwitch>
-                        <SSwitch tagName='Tag1' prefix={prefix} caption='CHẠY THUẬN VÍT TẢI CẤP LIỆU 2'></SSwitch>
-                        <SSwitch tagName='Tag1' prefix={prefix} caption='CHẠY NGHỊCH VÍT TẢI CẤP LIỆU 2'></SSwitch>
-                        <SSwitch tagName='Tag1' prefix={prefix} caption='VÍT TẢI RA LIỆU'></SSwitch>
-
+                       <KhoNghienTho></KhoNghienTho>
                     </CardContent>
                 </Card>
             </Grid>
@@ -77,12 +72,7 @@ function Kho() {
                 <Card className={classes.card}>
                     <CardContent >
                         <Typography variant='h6' className={classes.title}>KHO SAY SẤY</Typography>
-                        <SSwitch tagName='Tag1' prefix={prefix} caption='BƠM DẦU 1'></SSwitch>
-                        <SSwitch tagName='Tag1' prefix={prefix} caption='CHẠY THUẬN VÍT TẢI CẤP LIỆU 1'></SSwitch>
-                        <SSwitch tagName='Tag1' prefix={prefix} caption='CHẠY NGHỊCH VÍT TẢI CẤP LIỆU 1'></SSwitch>
-                        <SSwitch tagName='Tag1' prefix={prefix} caption='CHẠY THUẬN VÍT TẢI CẤP LIỆU 2'></SSwitch>
-                        <SSwitch tagName='Tag1' prefix={prefix} caption='CHẠY NGHỊCH VÍT TẢI CẤP LIỆU 2'></SSwitch>
-                        <SSwitch tagName='Tag1' prefix={prefix} caption='VÍT TẢI RA LIỆU'></SSwitch>
+                        <KhoNghienTho_SauSay></KhoNghienTho_SauSay>
 
                     </CardContent>
                 </Card>

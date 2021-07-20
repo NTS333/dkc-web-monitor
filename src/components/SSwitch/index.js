@@ -83,7 +83,7 @@ function SSwitch({ tagName, prefix, value,caption }) {
     }, []);
 
     const ReadCallback = (subCribeTags) => {
-      
+        
         let tagPath = prefix+'/'+tagName.toString()
         subCribeTags?.map(
             t => {

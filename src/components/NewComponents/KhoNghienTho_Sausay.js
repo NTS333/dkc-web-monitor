@@ -14,7 +14,7 @@ import {
   Button,
 } from "@material-ui/core";
 import React, { useState } from "react";
-import MtOn from "../assets/images/Motor_On.svg";
+import MtOn from "../../assets/images/Motor_On.svg";
 import ToggleButton from "@material-ui/lab/ToggleButton";
 import ToggleButtonGroup from "@material-ui/lab/ToggleButtonGroup";
 import ViewListIcon from "@material-ui/icons/ViewList";
@@ -28,12 +28,12 @@ import LoopIcon from "@material-ui/icons/Loop";
 import AutorenewIcon from "@material-ui/icons/Autorenew";
 
 import ControlPanel_KhoNTho_Sausay from "./ControlPanel_KhoNTho_Sausay";
-import VTaiOn from "../assets/images/Vittai_On.svg";
-import VTaiOff from "../assets/images/Vittai_Off.svg";
-import BDauOn from "../assets/images/Pump_On.svg";
-import BDauOff from "../assets/images/Pump_Off.svg";
-import VTFull_Off from "../assets/images/Vittai_Full_Off.svg";
-import VTFull_On from "../assets/images/Vittai_Full_On.svg";
+import VTaiOn from "../../assets/images/Vittai_On.svg";
+import VTaiOff from "../../assets/images/Vittai_Off.svg";
+import BDauOn from "../../assets/images/Pump_On.svg";
+import BDauOff from "../../assets/images/Pump_Off.svg";
+import VTFull_Off from "../../assets/images/Vittai_Full_Off.svg";
+import VTFull_On from "../../assets/images/Vittai_Full_On.svg";
 
 const useStyles = makeStyles((theme) => ({
   card_root: {
@@ -102,8 +102,8 @@ const useStyles = makeStyles((theme) => ({
   },
   xylanh_icon_Back: {
     fontSize: "3.5rem",
-    // color: "lightGreen",
-    color: "gray",
+     color: "cyan",
+    // color: "gray",
     [theme.breakpoints.down("sm")]: {
       marginLeft: 0,
     },
@@ -144,7 +144,6 @@ function KhoNghienTho_Sausay(props) {
   };
   const handleToggle_Manual = (e) => {
     // window.changeStatus(auto);
-
     setManual(!manual);
   };
   return (
@@ -225,11 +224,11 @@ function KhoNghienTho_Sausay(props) {
                 justify="center"
                 alignItems="center"
                 wrap="wrap"
-                style={{ background: "#555" }}
+               
               >
                 <Grid item xs={6} style={{ marginBottom: 20, marginTop: 10 }}>
                   <div style={{ textAlign: "center" }}>
-                    <Typography variant="h5" color="initial">
+                    <Typography variant="h6" style={{color:'white'}}>
                       XY LANH 1
                     </Typography>
                   </div>
