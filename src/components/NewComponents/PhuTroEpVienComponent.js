@@ -262,6 +262,7 @@ function PhuTroEpVienComponent(props) {
   const [KLCanB, setKLCanB] = useState(false);
   const [KLCanA, setKLCanA] = useState(false);
   const [KLCanATotal, setKLCanATotal] = useState(false);
+  const [KLCanBTotal, setKLCanBTotal] = useState(false);
   //Bin EV
   const [SCADA_BIN_EV, setSCADA_BIN_EV] = useState(false);
   const [LOW_LV1_Bin_EV, setLOW_LV1_Bin_EV] = useState(false);
@@ -533,8 +534,12 @@ function PhuTroEpVienComponent(props) {
             case prefix + "KLCanA":
               setKLCanA(value);
               break;
+
             case prefix + "KLCanATotal":
-              setKLCanATotal(value == "1");
+              setKLCanATotal(value);
+              break;
+            case prefix + "KLCanBTotal":
+              setKLCanBTotal(value);
               break;
             case prefix + "SCADA_BIN_EV":
               setSCADA_BIN_EV(value == "1");
@@ -1895,6 +1900,11 @@ function PhuTroEpVienComponent(props) {
                             Khối lượng <b>{KLCanA}</b> Kg
                           </Typography>
                         </Grid>
+                        <Grid xs={12} item justifyContent="center">
+                          <Typography>
+                            Khối lượng tổng <b>{KLCanATotal}</b> Kg
+                          </Typography>
+                        </Grid>
                       </Grid>
                     </CardMedia>
                   </Grid>
@@ -1917,10 +1927,16 @@ function PhuTroEpVienComponent(props) {
                             Khối lượng <b>{KLCanB}</b> Kg
                           </Typography>
                         </Grid>
+                        <Grid xs={12} item justifyContent="center">
+                          <Typography>
+                            Khối lượng tổng <b>{KLCanBTotal}</b> Kg
+                          </Typography>
+                        </Grid>
                       </Grid>
                     </CardMedia>
                   </Grid>
                 </Grid>
+           
               </Grid>
             </CardContent>
           </Card>
