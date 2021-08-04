@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useForm, Controller } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as Yup from 'yup';
@@ -15,6 +15,7 @@ import {
     Button,
     Container
 } from '@material-ui/core';
+import ToastNotification from '../components/ToastNotification';
 
 const useStyles = makeStyles((theme) => ({
     wrapper: {
@@ -34,6 +35,35 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const Login = () => {
+    const [message, setMessage] = useState(
+        {
+            status: 'error',
+            content: '',
+            action: false
+        }
+    );
+    const handleOpen = (isSuccess) => {
+        isSuccess ? setMessage({
+            status: 'success',
+            content: 'Đăng nhập thành công',
+            action: true
+        }) :
+            setMessage({
+                status: 'error',
+                content: 'Đăng nhập thất bại',
+                action: true
+            })
+    };
+    const handleClose = (event, reason) => {
+        if (reason === 'clickaway') {
+            return;
+        }
+        setMessage(
+            {
+                ...message, content: '', action: false
+            }
+        );
+    };
     const history = useHistory();
     const validationSchema = Yup.object().shape({
         // fullname: Yup.string().required('Fullname is required'),
@@ -66,8 +96,16 @@ const Login = () => {
     const classes = useStyles();
 
     const onSubmit = data => {
-        console.log(JSON.stringify(data, null, 2));
-        history.replace('/dashboard')
+        let isSuccess = false;
+        if(data.username == 'Operator' && data.password == 'Operator'){
+            isSuccess = true;
+            history.replace('/dashboard');
+            isSuccess = true;
+        }
+        else
+        handleOpen(isSuccess);
+        // console.log(JSON.stringify(data, null, 2));
+       
 
     };
 
@@ -208,9 +246,7 @@ const Login = () => {
                     </Grid>
 
                 </Container>
-
-
-
+                <ToastNotification message={message} handleOpen={handleOpen} handleClose={handleClose}></ToastNotification>
             </Grid>
 
 

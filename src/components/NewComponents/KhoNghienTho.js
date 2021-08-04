@@ -46,7 +46,7 @@ const useStyles = makeStyles((theme) => (
     cardheader_root: {
       // backgroundColor: "#0277bd",
       textTransform: "uppercase",
-      
+
     },
 
     card_img: {
@@ -54,7 +54,7 @@ const useStyles = makeStyles((theme) => (
       height: 70,
     },
     card_actionArea: {
-     
+
       marginTop: -10,
       background: 'transperance'
     },
@@ -66,7 +66,7 @@ const useStyles = makeStyles((theme) => (
       // paddingTop:10,
       marginTop: 0,
       fontSize: '1rem',
-      padding:7
+      padding: 7
     },
 
     btnTogle_selected: {
@@ -117,12 +117,12 @@ const useStyles = makeStyles((theme) => (
     },
     xylanh_icon_Back: {
       fontSize: "3.5rem",
-      color: "cyan",
+      color: "gray",
       // color: "gray",
       [theme.breakpoints.down("sm")]: {
         marginLeft: 0,
       },
-      marginLeft: 30,
+      marginLeft: 10,
     },
     xylanh_icon_Forward: {
       fontSize: "3.5rem",
@@ -162,110 +162,182 @@ function KhoNghienTho(props) {
   // const InitialData = useCallback(() => InitializeTagValue(), []);
   // const [NTho1Tags, setNTho1Tags] = useState(InitialData);
 
-  const [test, setTest] = useState(false)
   const [Accept, setAccept] = useState(false);
   const [Alarm_HT, setAlarm_HT] = useState(false);
   const [PL_SCADA, setPL_SCADA] = useState(false);
   const [PL_Auto, setPL_Auto] = useState(false);
   const [PL_Manual, setPL_Manual] = useState(false);
-  const [PL_VT, setPL_VT] = useState(false);
-  const [PL_VTTG, setPL_VTTG] = useState(false);
-  const [PL_Qhut, setPL_Qhut] = useState(false);
-  const [PL_FW_MN, setPL_FW_MN] = useState(false);
-  const [PL_RV_MN, setPL_RV_MN] = useState(false);
-  const [PL_OVL_VT, setPL_OVL_VT] = useState(false);
-  const [PL_OVL_VTTG, setPL_OVL_VTTG] = useState(false);
-  const [PL_OVL_MN, setPL_OVL_MN] = useState(false);
-  const [PL_OVL_Qhut, setPL_OVL_Qhut] = useState(false);
-  const [Result_Hz_VT, setResult_Hz_VT] = useState(null);
-  const [Current_Digital_MN, setCurrent_Digital_MN] = useState(null);
-  const [Current_Digital_VT, setCurrent_Digital_VT] = useState(null);
-  const [Current_Digital_QH, setCurrent_Digital_QH] = useState(null);
-  const [TempLeft_MN, setTempLeft_MN] = useState(null);
-  const [TempRight_MN, setTempRight_MN] = useState(null);
-  const [TempLeft_QH, setTempLeft_QH] = useState(null);
-  const [TempRight_QH, setTempRight_QH] = useState(null);
+  const [PL_CD1, setPL_CD1] = useState(false);
+  const [PL_CD2, setPL_CD2] = useState(false);
+  const [PL_CD3, setPL_CD3] = useState(false);
+  const [Alarm_XL1, setAlarm_XL1] = useState(false);
+  const [Alarm_XL2, setAlarm_XL2] = useState(false);
+  const [Alarm_XL3, setAlarm_XL3] = useState(false);
+  const [Alarm_XL4, setAlarm_XL4] = useState(false);
+  const [HI_LV1, setHI_LV1] = useState(false);
+  const [HI_LV2, setHI_LV2] = useState(false);
+  const [HI_LV_Cylone11, setHI_LV_Cylone11] = useState(false);
+  const [HI_LV_Cylone12, setHI_LV_Cylone12] = useState(false);
+  const [HI_LV_Cylone21, setHI_LV_Cylone21] = useState(false);
+  const [HI_LV_Cylone22, setHI_LV_Cylone22] = useState(false);
+  const [HI_LV_Screw, setHI_LV_Screw] = useState(false);
+  const [PL_FW_FD1, setPL_FW_FD1] = useState(false);
+  const [PL_FW_FD2, setPL_FW_FD2] = useState(false);
+  const [PL_RV_FD1, setPL_RV_FD1] = useState(false);
+  const [PL_RV_FD2, setPL_RV_FD2] = useState(false);
+  const [PL_Screw, setPL_Screw] = useState(false);
+  const [PL_Pump1, setPL_Pump1] = useState(false);
+  const [PL_Pump2, setPL_Pump2] = useState(false);
+  const [ST_FW_Vale1, setST_FW_Vale1] = useState(false);
+  const [ST_FW_Vale2, setST_FW_Vale2] = useState(false);
+  const [ST_FW_Vale3, setST_FW_Vale3] = useState(false);
+  const [ST_FW_Vale4, setST_FW_Vale4] = useState(false);
+  const [ST_RV_Vale1, setST_RV_Vale1] = useState(false);
+  const [ST_RV_Vale2, setST_RV_Vale2] = useState(false);
+  const [ST_RV_Vale3, setST_RV_Vale3] = useState(false);
+  const [ST_RV_Vale4, setST_RV_Vale4] = useState(false);
+
+  const [PL_OVL_FD1, setPL_OVL_FD1] = useState(false);
+  const [PL_OVL_FD2, setPL_OVL_FD2] = useState(false);
+  const [PL_OVL_Screw, setPL_OVL_Screw] = useState(false);
+  const [PL_OVL_Pump1, setPL_OVL_Pump1] = useState(false);
+  const [PL_OVL_Pump2, setPL_OVL_Pump2] = useState(false);
+
+
+
   const handleChange = (event, nextView) => {
     setView(nextView);
   };
   useEffect(() => {
+    console.log('rerender kho nghien tho');
     const timer = setInterval(() => {
-      console.log('May nghien tinh ');
-      console.log(prefix)
-      window.subcribeTag && window.subcribeTag?.forEach(tag => {
+      console.log('Kho nghiền thô');
+      
+      if(typeof(window.subcribeTag) === 'object')
+      window.subcribeTag?.forEach(tag => {
         let value = tag.Value
         switch (tag.Path) {
-          case prefix + 'Alarm_HT':
+          case prefix + 'ALARM_A':
             setAlarm_HT(value == "1");
             break;
-          case prefix + 'SCADA_MN':
+          case prefix + 'SCADA_A':
             setPL_SCADA(value == "1");
             break;
-          case prefix + 'PL_Auto_MN':
+          case prefix + 'PL_Auto_A':
             setPL_Auto(value == "1");
             break;
-          case prefix + 'PL_Man_MN':
+          case prefix + 'PL_Man_A':
             setPL_Manual(value == "1");
             break;
-          case prefix + 'PL_FW_MN':
-            setPL_FW_MN(value == "1");
+          case prefix + 'PL_CD1_A':
+            setPL_CD1(value == "1");
             break;
-          case prefix + 'PL_RV_MN':
-            setPL_RV_MN(value == "1");
+          case prefix + 'PL_CD2_A':
+            setPL_CD2(value == "1");
             break;
-          case prefix + 'PL_VT':
-            setPL_VT(value == '1')
+          case prefix + 'PL_CD3_A':
+            setPL_CD3(value == '1')
             break;
-          case prefix + 'PL_VTTG':
-            setPL_VTTG(value == '1')
+          case prefix + 'Alarm_XL1A':
+            setAlarm_XL1(value == '1')
             break;
-          case prefix + 'PL_QH':
-            setPL_Qhut(value == '1')
+          case prefix + 'Alarm_XL2A':
+            setAlarm_XL2(value == '1')
             break;
-          case prefix + 'PL_OVL_MN':
-            setPL_OVL_MN(value == '1')
+          case prefix + 'Alarm_XL3A':
+            setAlarm_XL3(value == '1')
             break;
-          case prefix + 'PL_OVL_VT':
-            setPL_OVL_VT(value == '1')
+          case prefix + 'Alarm_XL4A':
+            setAlarm_XL4(value == '1')
             break;
-          case prefix + 'PL_OVL_VTTG':
-            setPL_OVL_VTTG(value == '1')
+          case prefix + 'HI_LV_A1':
+            setHI_LV1(value == '1')
             break;
-          case prefix + 'PL_OVL_QH':
-            setPL_OVL_Qhut(value == '1')
+          case prefix + 'HI_LV_A2':
+            setHI_LV2(value == '1')
             break;
-          case prefix + 'Current_Digital_MN':
-            setCurrent_Digital_MN(value)
+          case prefix + 'HI_LV_CyloneA11':
+            setHI_LV_Cylone11(value == '1')
             break;
-          case prefix + 'Current_Digital_VT':
-            setCurrent_Digital_VT(value)
+          case prefix + 'HI_LV_CyloneA12':
+            setHI_LV_Cylone12(value == '1')
             break;
-          case prefix + 'Current_Digital_QH':
-            setCurrent_Digital_QH(value)
+          case prefix + 'HI_LV_CyloneA21':
+            setHI_LV_Cylone21(value == '1')
             break;
-          case prefix + 'Hz_VT':
-            setResult_Hz_VT(value)
+          case prefix + 'HI_LV_CyloneA22':
+            setHI_LV_Cylone22(value == '1')
             break;
-          case prefix + 'Tem_Left_MN':
-            setTempLeft_MN(value)
+            case prefix + 'HI_LV_Screw_A':
+              setHI_LV_Screw(value == '1')
+              break;
+          case prefix + 'PL_FW_FD_A1':
+            setPL_FW_FD1(value == '1')
             break;
-          case prefix + 'Tem_Left_QH':
-            setTempLeft_QH(value)
+          case prefix + 'PL_FW_FD_A2':
+            setPL_FW_FD2(value == '1')
             break;
-          case prefix + 'Tem_Right_MN':
-            setTempRight_MN(value)
+          case prefix + 'PL_RV_FD_A1':
+            setPL_RV_FD1(value == '1')
             break;
-          case prefix + 'Tem_Right_QH':
-            setTempRight_QH(value)
+          case prefix + 'PL_RV_FD_A2':
+            setPL_RV_FD2(value == '1')
             break;
+          case prefix + 'PL_Screw_A':
+            setPL_Screw(value == '1')
+            break;
+          case prefix + 'PL_Pump_A1':
+            setPL_Pump1(value == '1')
+            break;
+          case prefix + 'PL_Pump_A2':
+            setPL_Pump2(value == '1')
+            break;
+          case prefix + 'ST_FW1_Vale_A':
+            setST_FW_Vale1(value == '1')
+            break;
+          case prefix + 'ST_FW2_Vale_A':
+            setST_FW_Vale2(value == '1')
+            break;
+          case prefix + 'ST_FW3_Vale_A':
+            setST_FW_Vale3(value == '1')
+            break;
+          case prefix + 'ST_FW4_Vale_A':
+            setST_FW_Vale4(value == '1')
+            break;
+          case prefix + 'ST_RV1_Vale_A':
+            setST_RV_Vale1(value == '1')
+            break;
+          case prefix + 'ST_RV2_Vale_A':
+            setST_RV_Vale2(value == '1')
+            break;
+          case prefix + 'ST_RV3_Vale_A':
+            setST_RV_Vale3(value == '1')
+            break;
+          case prefix + 'ST_RV4_Vale_A':
+            setST_RV_Vale4(value == '1')
+            break;
+          case prefix + 'PL_OVL_FD_A1':
+            setPL_OVL_FD1(value == '1')
+            break;
+          case prefix + 'PL_OVL_FD_A2':
+            setPL_OVL_FD2(value == '1')
+            break;
+          case prefix + 'PL_OVL_Screw_A':
+            setPL_OVL_Screw(value == '1')
+            break;
+          case prefix + 'PL_OVL_Pump_A1':
+            setPL_OVL_Pump1(value == '1')
+            break;
+          case prefix + 'PL_OVL_Pump_A2':
+            setPL_OVL_Pump2(value == '1')
+            break;
+
           default:
             break;
         }
-        console.log(tag)
+       
       });
-
-
-    }, 1300);
+    }, 1000);
 
     return () => {
       clearInterval(timer)
@@ -286,7 +358,7 @@ function KhoNghienTho(props) {
               <div className={classes.status_container}>
                 <span
                   className={
-                    !PL_SCADA
+                    PL_SCADA
                       ? classes.status_item__Active_S
                       : classes.status_item__InActive_S
                   }
@@ -297,7 +369,7 @@ function KhoNghienTho(props) {
                 </span>
                 <span
                   className={
-                    !PL_Auto
+                    PL_Auto
                       ? classes.status_item__Active
                       : classes.status_item__InActive
                   }
@@ -308,13 +380,42 @@ function KhoNghienTho(props) {
                 </span>
                 <span
                   className={
-                    !PL_Manual
+                    PL_Manual
                       ? classes.status_item__Active
                       : classes.status_item__InActive
                   }
                   id={id_man}
                 >
                   Manual
+                </span>
+                <span
+                  className={
+                    PL_CD1
+                      ? classes.status_item__Active
+                      : classes.status_item__InActive
+                  }
+                  
+                >
+                  CĐ1
+                </span>
+                <span
+                  className={
+                    PL_CD2
+                      ? classes.status_item__Active
+                      : classes.status_item__InActive
+                  }
+                 
+                >
+                  CĐ2
+                </span>
+                <span
+                  className={
+                    PL_CD3
+                      ? classes.status_item__Active
+                      : classes.status_item__InActive
+                  }
+                >
+                 CĐ3
                 </span>
 
               </div>
@@ -348,6 +449,7 @@ function KhoNghienTho(props) {
 
                           <ArrowBackIcon
                             className={classes.xylanh_icon_Back}
+                            style={{ color:Alarm_XL1?'red':ST_RV_Vale1? 'cyan':'gray' }}
                           ></ArrowBackIcon>
                           <Typography
                             variant="h6"
@@ -362,11 +464,12 @@ function KhoNghienTho(props) {
                         <div style={{ textAlign: "center", float: "right" }}>
                           <ArrowForwardIcon
                             className={classes.xylanh_icon_Forward}
+                            style={{ color:Alarm_XL1?'red':ST_FW_Vale1? 'cyan':'gray' }}
                           ></ArrowForwardIcon>
                           <Typography
                             variant="h6"
                             color="initial"
-                            style={{ marginRight: 20, marginTop: -10 }}
+                            style={{ marginRight: 0, marginTop: -10 }}
                           >
                             Tiến
                           </Typography>
@@ -385,6 +488,7 @@ function KhoNghienTho(props) {
 
                           <ArrowBackIcon
                             className={classes.xylanh_icon_Back}
+                            style={{ color:Alarm_XL2?'red':ST_RV_Vale2? 'cyan':'gray' }}
                           ></ArrowBackIcon>
                           <Typography
                             variant="h6"
@@ -399,11 +503,12 @@ function KhoNghienTho(props) {
                         <div style={{ textAlign: "center", float: "right" }}>
                           <ArrowForwardIcon
                             className={classes.xylanh_icon_Forward}
+                            style={{ color:Alarm_XL2?'red':ST_FW_Vale2? 'cyan':'gray' }}
                           ></ArrowForwardIcon>
                           <Typography
                             variant="h6"
                             color="initial"
-                            style={{ marginRight: 20, marginTop: -10 }}
+                            style={{ marginRight: 0, marginTop: -10 }}
                           >
                             Tiến
                           </Typography>
@@ -422,6 +527,7 @@ function KhoNghienTho(props) {
 
                           <ArrowBackIcon
                             className={classes.xylanh_icon_Back}
+                            style={{ color:Alarm_XL3?'red':ST_RV_Vale3? 'cyan':'gray' }}
                           ></ArrowBackIcon>
                           <Typography
                             variant="h6"
@@ -436,11 +542,12 @@ function KhoNghienTho(props) {
                         <div style={{ textAlign: "center", float: "right" }}>
                           <ArrowForwardIcon
                             className={classes.xylanh_icon_Forward}
+                            style={{ color:Alarm_XL3?'red':ST_FW_Vale3? 'cyan':'gray' }}
                           ></ArrowForwardIcon>
                           <Typography
                             variant="h6"
                             color="initial"
-                            style={{ marginRight: 20, marginTop: -10 }}
+                            style={{ marginRight: 0, marginTop: -10 }}
                           >
                             Tiến
                           </Typography>
@@ -459,6 +566,7 @@ function KhoNghienTho(props) {
 
                           <ArrowBackIcon
                             className={classes.xylanh_icon_Back}
+                            style={{ color:Alarm_XL4?'red':ST_RV_Vale4? 'cyan':'gray' }}
                           ></ArrowBackIcon>
                           <Typography
                             variant="h6"
@@ -473,11 +581,12 @@ function KhoNghienTho(props) {
                         <div style={{ textAlign: "center", float: "right" }}>
                           <ArrowForwardIcon
                             className={classes.xylanh_icon_Forward}
+                            style={{ color:Alarm_XL4?'red':ST_FW_Vale4? 'cyan':'gray' }}
                           ></ArrowForwardIcon>
                           <Typography
                             variant="h6"
                             color="initial"
-                            style={{ marginRight: 20, marginTop: -10 }}
+                            style={{ marginRight: 0, marginTop: -10 }}
                           >
                             Tiến
                           </Typography>
@@ -505,7 +614,7 @@ function KhoNghienTho(props) {
                 wrap="wrap"
                 spacing={1}
                 style={{
-                  marginBottom:-10
+                  marginBottom: -10
                 }}
               >
                 <Grid item xs={6} style={{ textAlign: "center" }}>
@@ -518,6 +627,7 @@ function KhoNghienTho(props) {
 
                         <LoopIcon
                           className={classes.xylanh_icon_Back}
+                          style={{ color:PL_OVL_FD1?'red':PL_RV_FD1? 'cyan':'gray' }}
                         ></LoopIcon>
                         <Typography
                           variant="h6"
@@ -532,23 +642,24 @@ function KhoNghienTho(props) {
                       <div style={{ textAlign: "center", float: "right" }}>
                         <AutorenewIcon
                           className={classes.xylanh_icon_Forward}
+                          style={{ color:PL_OVL_FD1?'red':PL_FW_FD1? 'cyan':'gray' }}
                         ></AutorenewIcon>
                         <Typography
                           variant="h6"
                           color="initial"
-                          style={{ marginRight: 20, marginTop: -10 }}
+                          style={{ marginRight: 0, marginTop: -10 }}
                         >
                           Thuận
                         </Typography>
                       </div>
                     </Grid>
                     <Grid xs={12}>
-                      <div style={{ textAlign: "center" ,marginTop:-30}}>
+                      <div style={{ textAlign: "center", marginTop: -30 }}>
                         {/* <LoopIcon className={classes.xylanh_icon_Back}></LoopIcon>
                      */}
-                        <img width={130} src={VTFull_Off} alt="" style={{transform:'rotate(270deg)'}}/>
+                        <img width={130} src={HI_LV1?VTFull_On:VTFull_Off} alt="" style={{ transform: 'rotate(270deg)' }} />
                       </div>
-                      <div style={{ textAlign: "center", marginBottom: 10,marginTop:-30 }}>
+                      <div style={{ textAlign: "center", marginBottom: 10, marginTop: -30 }}>
                         <Typography variant="h6" color="initial">
                           Báo đầy
                         </Typography>
@@ -568,6 +679,7 @@ function KhoNghienTho(props) {
 
                         <LoopIcon
                           className={classes.xylanh_icon_Back}
+                          style={{ color:PL_OVL_FD2?'red':PL_RV_FD2? 'cyan':'gray' }}
                         ></LoopIcon>
                         <Typography
                           variant="h6"
@@ -582,23 +694,24 @@ function KhoNghienTho(props) {
                       <div style={{ textAlign: "center", float: "right" }}>
                         <AutorenewIcon
                           className={classes.xylanh_icon_Forward}
+                          style={{ color:PL_OVL_FD2?'red':PL_FW_FD2? 'cyan':'gray' }}
                         ></AutorenewIcon>
                         <Typography
                           variant="h6"
                           color="initial"
-                          style={{ marginRight: 20, marginTop: -10 }}
+                          style={{ marginRight: 0, marginTop: -10 }}
                         >
                           Thuận
                         </Typography>
                       </div>
                     </Grid>
                     <Grid xs={12}>
-                      <div style={{ textAlign: "center",marginTop:-30 }}>
+                      <div style={{ textAlign: "center", marginTop: -30 }}>
                         {/* <LoopIcon className={classes.xylanh_icon_Back}></LoopIcon>
                      */}
-                        <img width={130} src={VTFull_Off} alt="" style={{transform:'rotate(270deg)'}}/>
+                        <img width={130} src={HI_LV2?VTFull_On:VTFull_Off} alt="" style={{ transform: 'rotate(270deg)' }} />
                       </div>
-                      <div style={{ textAlign: "center", marginBottom: 10 ,marginTop:-30}}>
+                      <div style={{ textAlign: "center", marginBottom: 10, marginTop: -30 }}>
                         <Typography variant="h6" color="initial">
                           Báo đầy
                         </Typography>
@@ -617,36 +730,38 @@ function KhoNghienTho(props) {
             ></CardHeader>
             <CardContent>
               <Grid container justify="center" alignItems="center" wrap="wrap">
-              <Grid item xs={6} style={{ textAlign: "center", marginTop: -10 }}>
-                      <div style={{ textAlign: "center", float: "left" }}>
+                <Grid item xs={6} style={{ textAlign: "center", marginTop: -10 }}>
+                  <div style={{ textAlign: "center", float: "left" }}>
 
-                      <img
-                        src={VTaiOff}
-                        className={classes.xylanh_icon_Back}
-                      ></img>
-                        <Typography
-                          variant="h6"
-                          color="initial"
-                          style={{ marginLeft: 0, marginTop: -10 }}
-                        >
-                          Trạng thái
-                        </Typography>
-                      </div>
-                    </Grid>
-                    <Grid item xs={6} style={{ textAlign: "center", marginTop: -10 }}>
-                      <div style={{ textAlign: "center", float: "right" }}>
-                     
-                        <img width={130} src={VTFull_Off} alt="" style={{transform:'rotate(270deg)'}}/>
+                    <img
+                      src={PL_Screw?VTaiOn:VTaiOff}
+                      className={classes.xylanh_icon_Back}
+                      style={{ backgroundColor: PL_OVL_Screw?'red':''}}
                       
-                        <Typography
-                          variant="h6"
-                          color="initial"
-                          style={{ marginRight: 20, marginTop: -40 }}
-                        >
-                          Báo đầy
-                        </Typography>
-                      </div>
-                    </Grid>
+                    ></img>
+                    <Typography
+                      variant="h6"
+                      color="initial"
+                      style={{ marginLeft: 0, marginTop: -10 }}
+                    >
+                      Trạng thái
+                    </Typography>
+                  </div>
+                </Grid>
+                <Grid item xs={6} style={{ textAlign: "center", marginTop: -10 }}>
+                  <div style={{ textAlign: "center", float: "right" }}>
+
+                    <img width={130} src={HI_LV_Screw?VTFull_On:VTFull_Off} alt="" style={{ transform: 'rotate(270deg)' }} />
+
+                    <Typography
+                      variant="h6"
+                      color="initial"
+                      style={{ marginRight: 20, marginTop: -40 }}
+                    >
+                      Báo đầy
+                    </Typography>
+                  </div>
+                </Grid>
               </Grid>
             </CardContent>
           </Card>
@@ -663,7 +778,7 @@ function KhoNghienTho(props) {
                 wrap="wrap"
                 spacing={1}
                 style={{
-                  marginBottom:-10
+                  marginBottom: -10
                 }}
               >
                 <Grid item xs={6} style={{ textAlign: "center" }}>
@@ -672,12 +787,12 @@ function KhoNghienTho(props) {
                       <Typography variant='h6'>Cylone 1</Typography>
                     </Grid>
                     <Grid xs={12}>
-                      <div style={{ textAlign: "center" ,marginTop:-30}}>
+                      <div style={{ textAlign: "center", marginTop: -30 }}>
                         {/* <LoopIcon className={classes.xylanh_icon_Back}></LoopIcon>
                      */}
-                        <img width={130} src={VTFull_Off} alt="" style={{transform:'rotate(270deg)'}}/>
+                        <img width={130} src={HI_LV_Cylone11?VTFull_On:VTFull_Off} alt="" style={{ transform: 'rotate(270deg)' }} />
                       </div>
-                      <div style={{ textAlign: "center", marginBottom: 0,marginTop:-30 }}>
+                      <div style={{ textAlign: "center", marginBottom: 0, marginTop: -30 }}>
                         <Typography variant="h6" color="initial">
                           Báo đầy
                         </Typography>
@@ -693,12 +808,52 @@ function KhoNghienTho(props) {
                       <Typography variant='h6'>Cylone 2</Typography>
                     </Grid>
                     <Grid xs={12}>
-                      <div style={{ textAlign: "center" ,marginTop:-30}}>
+                      <div style={{ textAlign: "center", marginTop: -30 }}>
                         {/* <LoopIcon className={classes.xylanh_icon_Back}></LoopIcon>
                      */}
-                        <img width={130} src={VTFull_Off} alt="" style={{transform:'rotate(270deg)'}}/>
+                        <img width={130} src={HI_LV_Cylone12?VTFull_On:VTFull_Off} alt="" style={{ transform: 'rotate(270deg)' }} />
                       </div>
-                       <div style={{ textAlign: "center", marginBottom: 0,marginTop:-30 }}>
+                      <div style={{ textAlign: "center", marginBottom: 0, marginTop: -30 }}>
+                        <Typography variant="h6" color="initial">
+                          Báo đầy
+                        </Typography>
+                      </div>
+                    </Grid>
+                  </Grid>
+                </Grid>
+                <Grid item xs={6} style={{ textAlign: "center" }}>
+                  <Grid container>
+                    <Grid item xs={12}>
+                      <Typography variant='h6'>Cylone 3</Typography>
+                    </Grid>
+                    <Grid xs={12}>
+                      <div style={{ textAlign: "center", marginTop: -30 }}>
+                        {/* <LoopIcon className={classes.xylanh_icon_Back}></LoopIcon>
+                     */}
+                        <img width={130} src={HI_LV_Cylone21?VTFull_On:VTFull_Off} alt="" style={{ transform: 'rotate(270deg)' }} />
+                      </div>
+                      <div style={{ textAlign: "center", marginBottom: 0, marginTop: -30 }}>
+                        <Typography variant="h6" color="initial">
+                          Báo đầy
+                        </Typography>
+                      </div>
+
+                    </Grid>
+
+                  </Grid>
+                </Grid>
+                <Grid item xs={6} style={{ textAlign: "center" }}>
+                  <Grid container>
+                    <Grid item xs={12}>
+                      <Typography variant='h6'>Cylone 4</Typography>
+                    </Grid>
+                    <Grid xs={12}>
+                      <div style={{ textAlign: "center", marginTop: -30 }}>
+                        {/* <LoopIcon className={classes.xylanh_icon_Back}></LoopIcon>
+                     */}
+                        <img width={130} src={HI_LV_Cylone22?VTFull_On:VTFull_Off} alt="" style={{ transform: 'rotate(270deg)' }} />
+                      </div>
+                      <div style={{ textAlign: "center", marginBottom: 0, marginTop: -30 }}>
                         <Typography variant="h6" color="initial">
                           Báo đầy
                         </Typography>
@@ -723,7 +878,7 @@ function KhoNghienTho(props) {
                 wrap="wrap"
                 spacing={1}
                 style={{
-                  marginBottom:-10
+                  marginBottom: -10
                 }}
               >
                 <Grid item xs={6} style={{ textAlign: "center" }}>
@@ -735,9 +890,10 @@ function KhoNghienTho(props) {
                       <div style={{ textAlign: "center" }}>
                         {/* <LoopIcon className={classes.xylanh_icon_Back}></LoopIcon>
                      */}
-                        <img width={130} src={BDauOff} alt="" />
+                        <img width={130} src={PL_Pump1?BDauOn:BDauOff} alt=""  
+                        style={{ backgroundColor: PL_OVL_Pump1?'red':''}}/>
                       </div>
-                      
+
                     </Grid>
 
                   </Grid>
@@ -751,9 +907,11 @@ function KhoNghienTho(props) {
                       <div style={{ textAlign: "center" }}>
                         {/* <LoopIcon className={classes.xylanh_icon_Back}></LoopIcon>
                      */}
-                        <img width={130} src={BDauOff} alt="" />
+                        <img width={130} src={PL_Pump2?BDauOn:BDauOff} alt="" 
+                         style={{ backgroundColor: PL_OVL_Pump2?'red':''}}
+                        />
                       </div>
-                     
+
                     </Grid>
                   </Grid>
                 </Grid>

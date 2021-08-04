@@ -25,7 +25,7 @@
     -->
 
 
-  <title>React App</title>
+  <title>DKC Nghệ An</title>
 </head>
 
 <body>
@@ -90,7 +90,7 @@
     //Đọc giá trị của các tag đã đăng kí
 
     //Connect to the SignalR server and get the proxy for simpleHub
-    function connect() {
+   async function connect() {
       $.getScript(url + "/hubs", function () {
         $.connection.hub.url = url;
         // Declare a proxy to reference the hub.
@@ -111,7 +111,9 @@
         $.connection.hub
           .start()
           .done(async function () {
-
+            var Status = $("#status");
+            Status.css({ background: "green", color: "white" });
+            Status.html("Connected");
             //  await getAllTagsAsync("Local Station/Channel1/Device1");
             //  await getTagAsync(tags[0].Path)
             // callback(tags);
@@ -125,7 +127,7 @@
               "ReceiveFromServer",
               500
             );
-
+            
             // getSubscribedData();
 
             //getAllElementsAsync();
@@ -484,7 +486,12 @@
     });
 
     $(window).on("load", async function (e) {
-      connect();
+     await connect();
+      var Status = $("#status");
+        if (isStarted) {
+          Status.css({ background: "green", color: "white" });
+          Status.html("Connected");
+        }
     });
     $(document).ready(function () {
       // $('#Control_NTho1').click((e)=>{
@@ -501,13 +508,14 @@
       // },5000)
 
       window.setTimeout(() => {
+        console.log('Set Timeout');
         var Status = $("#status");
         if (isStarted) {
           Status.css({ background: "green", color: "white" });
           Status.html("Connected");
         }
       });
-    }, 2000);
+    }, 3000);
 
     var i = false;
 

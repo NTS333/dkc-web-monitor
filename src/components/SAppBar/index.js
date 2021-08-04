@@ -14,7 +14,8 @@ import MayEpVien from '../MayEpVien';
 import GiuBui from '../GiuBui';
 import LoDot from '../LoDot';
 import LoSay from '../LoSay';
-
+import { useHistory } from 'react-router';
+import PTEV from '../PTEV';
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
@@ -31,6 +32,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function SAppBar() {
+  const history = useHistory();
   const classes = useStyles();
   const [open, setOpen] = useState(false);
   const routeMatch = useRouteMatch();
@@ -46,6 +48,9 @@ export default function SAppBar() {
     },
     [],
   )
+  const handleLogout = ()=>{
+    history.replace('/login')
+  }
   return (
     <div className={classes.root}>
       <AppBar position="fixed">
@@ -57,7 +62,8 @@ export default function SAppBar() {
             DKC NGHỆ AN
           </Typography>
           <Typography id='status' className={classes.status}>Disconnected</Typography>
-          <Button style={{background:'#e9d8a6',color:'black',width:90,margin:10,marginRight:0}} variant='text' ><b>Log out</b></Button>
+          <Button style={{background:'#e9d8a6',color:'black',width:90,margin:10,marginRight:0}} variant='text' onClick={handleLogout}
+          ><b>Log out</b></Button>
         </Toolbar>
       </AppBar>
       <SNavBar open={open} toggle={toggle}></SNavBar>
@@ -78,7 +84,7 @@ export default function SAppBar() {
               <LoSay></LoSay>
           </Route>
           <Route path={routeMatch.path+'/phutroepvien'}>
-              <Kho></Kho>
+              <PTEV></PTEV>
           </Route>
           <Route path={routeMatch.path+'/epvien'}>
               <MayEpVien></MayEpVien>

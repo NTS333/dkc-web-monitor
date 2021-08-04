@@ -5,6 +5,7 @@ import SSwitch from '../SSwitch'
 import { makeStyles } from '@material-ui/core/styles';
 import { blue, green } from '@material-ui/core/colors'
 import { width } from '@material-ui/system';
+import MayEpComponent from '../NewComponents/MayEpComponent';
 const useStyles = makeStyles({
     card: {
         background: '#dcd7d7',
@@ -31,7 +32,7 @@ const useStyles = makeStyles({
 
 function MayEpVien() {
     const classes = useStyles();
-    const prefix = 'Local Station/Control/Device1'
+    const prefix = 'RemoteStation1/PLC_EpVien/'
     return (
         <div style={{ position: 'relative', margin: '0 auto', marginTop: 60, marginLeff: 20, display: 'flex', justifySelf: 'center' }}>
 
@@ -55,11 +56,12 @@ function MayEpVien() {
                     <Card className={classes.card}>
                         <CardContent >
                             <Typography variant='h6' className={classes.title}>MÁY ÉP VIÊN 1</Typography>
-                            <SSwitch tagName='Tag1' prefix={prefix} caption='Control M'></SSwitch>
+                            <MayEpComponent prefix ={prefix+'EpVien1/'}></MayEpComponent>
+                            {/* <SSwitch tagName='Tag1' prefix={prefix} caption='Control M'></SSwitch>
                             <SSwitch tagName='Tag1' prefix={prefix} caption='Control A'></SSwitch>
                             <SSwitch tagName='Tag1' prefix={prefix} caption='Control B'></SSwitch>
                             <SSwitch tagName='Tag1' prefix={prefix} caption='Control DS'></SSwitch>
-                            <SSwitch tagName='Tag1' prefix={prefix} caption='Control MX'></SSwitch>
+                            <SSwitch tagName='Tag1' prefix={prefix} caption='Control MX'></SSwitch> */}
 
                         </CardContent>
                     </Card>
@@ -75,11 +77,12 @@ function MayEpVien() {
                     <Card className={classes.card}>
                         <CardContent >
                             <Typography variant='h6' className={classes.title}>MÁY ÉP VIÊN 2</Typography>
-                            <SSwitch tagName='Tag1' prefix={prefix} caption='Control M'></SSwitch>
+                            <MayEpComponent prefix ={prefix+'EpVien2/'}></MayEpComponent>
+                            {/* <SSwitch tagName='Tag1' prefix={prefix} caption='Control M'></SSwitch>
                             <SSwitch tagName='Tag1' prefix={prefix} caption='Control A'></SSwitch>
                             <SSwitch tagName='Tag1' prefix={prefix} caption='Control B'></SSwitch>
                             <SSwitch tagName='Tag1' prefix={prefix} caption='Control DS'></SSwitch>
-                            <SSwitch tagName='Tag1' prefix={prefix} caption='Control MX'></SSwitch>
+                            <SSwitch tagName='Tag1' prefix={prefix} caption='Control MX'></SSwitch> */}
 
 
                         </CardContent>
@@ -95,11 +98,12 @@ function MayEpVien() {
                     <Card className={classes.card}>
                         <CardContent >
                             <Typography variant='h6' className={classes.title}>MÁY ÉP VIÊN 3</Typography>
-                            <SSwitch tagName='Tag1' prefix={prefix} caption='Control M'></SSwitch>
+                            {/* <SSwitch tagName='Tag1' prefix={prefix} caption='Control M'></SSwitch>
                             <SSwitch tagName='Tag1' prefix={prefix} caption='Control A'></SSwitch>
                             <SSwitch tagName='Tag1' prefix={prefix} caption='Control B'></SSwitch>
                             <SSwitch tagName='Tag1' prefix={prefix} caption='Control DS'></SSwitch>
-                            <SSwitch tagName='Tag1' prefix={prefix} caption='Control MX'></SSwitch>
+                            <SSwitch tagName='Tag1' prefix={prefix} caption='Control MX'></SSwitch> */}
+                            <MayEpComponent prefix ={prefix+'EpVien3/'}></MayEpComponent>
 
                         </CardContent>
                     </Card>
@@ -114,11 +118,12 @@ function MayEpVien() {
                     <Card className={classes.card}>
                         <CardContent >
                             <Typography variant='h6' className={classes.title}>MÁY ÉP VIÊN 4</Typography>
-                            <SSwitch tagName='Tag1' prefix={prefix} caption='Control M'></SSwitch>
+                            {/* <SSwitch tagName='Tag1' prefix={prefix} caption='Control M'></SSwitch>
                             <SSwitch tagName='Tag1' prefix={prefix} caption='Control A'></SSwitch>
                             <SSwitch tagName='Tag1' prefix={prefix} caption='Control B'></SSwitch>
                             <SSwitch tagName='Tag1' prefix={prefix} caption='Control DS'></SSwitch>
-                            <SSwitch tagName='Tag1' prefix={prefix} caption='Control MX'></SSwitch>
+                            <SSwitch tagName='Tag1' prefix={prefix} caption='Control MX'></SSwitch> */}
+                            <MayEpComponent prefix ={prefix+'EpVien3/'}></MayEpComponent>
 
                         </CardContent>
                     </Card>

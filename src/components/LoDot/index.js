@@ -5,6 +5,7 @@ import SSwitch from '../SSwitch'
 import { makeStyles } from '@material-ui/core/styles';
 import { blue, green } from '@material-ui/core/colors'
 import { width } from '@material-ui/system';
+import LoDotComponent from '../NewComponents/LoDotComponent';
 const useStyles = makeStyles({
     card: {
         background: '#dcd7d7',
@@ -30,7 +31,7 @@ const useStyles = makeStyles({
 
 function LoDot() {
     const classes = useStyles();
-    const prefix = 'Local Station/Control/Device1'
+    const prefix = 'RemoteStation1/PLC_LoDot/'
     return (
         <div style={{ position: 'relative', margin: '0 auto', marginTop: 60,marginLeff:20,display:'flex',justifySelf:'center' }}>
             
@@ -53,13 +54,7 @@ function LoDot() {
                     <Card className={classes.card}>
                         <CardContent >
                             <Typography variant='h6' className={classes.title}>LÒ ĐỐT 1</Typography>
-                            <SSwitch tagName='Tag1' prefix={prefix} caption='Control_QHMain_LD'></SSwitch>
-                            <SSwitch tagName='Tag2' prefix={prefix} caption='Control_QH_Mix_LD'  ></SSwitch>
-                            <SSwitch tagName='Tag3' prefix={prefix} caption='Control_QH_Up_LD'  ></SSwitch>
-                            <SSwitch tagName='Tag3' prefix={prefix} caption='Control_BTCL_LD'  ></SSwitch>
-                            <SSwitch tagName='Tag3' prefix={prefix} caption='Control_VTCL1_LD'  ></SSwitch>
-                            <SSwitch tagName='Tag3' prefix={prefix} caption='Control_XL1_LD'  ></SSwitch>
-                            <SSwitch tagName='Tag3' prefix={prefix} caption='Control_XL2_LD'  ></SSwitch>
+                            <LoDotComponent prefix={prefix+'LoDot1/'}></LoDotComponent>
                         </CardContent>
                     </Card>
                 </Grid>
@@ -73,13 +68,7 @@ function LoDot() {
                     <Card className={classes.card}>
                         <CardContent >
                             <Typography variant='h6' className={classes.title}>LÒ ĐỐT 2</Typography>
-                            <SSwitch tagName='Tag1' prefix={prefix} caption='Control_QHMain_LD'></SSwitch>
-                            <SSwitch tagName='Tag2' prefix={prefix} caption='Control_QH_Mix_LD'  ></SSwitch>
-                            <SSwitch tagName='Tag3' prefix={prefix} caption='Control_QH_Up_LD'  ></SSwitch>
-                            <SSwitch tagName='Tag3' prefix={prefix} caption='Control_BTCL_LD'  ></SSwitch>
-                            <SSwitch tagName='Tag3' prefix={prefix} caption='Control_VTCL1_LD'  ></SSwitch>
-                            <SSwitch tagName='Tag3' prefix={prefix} caption='Control_XL1_LD'  ></SSwitch>
-                            <SSwitch tagName='Tag3' prefix={prefix} caption='Control_XL2_LD'  ></SSwitch>
+                            <LoDotComponent prefix={prefix+'LoDot2/'}></LoDotComponent>
                         </CardContent>
                     </Card>
                 </Grid>

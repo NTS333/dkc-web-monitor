@@ -262,7 +262,8 @@ function MayNghienTinh(props) {
     const timer = setInterval(() => {
       console.log('May nghien tinh ');
       console.log(prefix)
-      window.subcribeTag && window.subcribeTag?.forEach(tag => {
+      if(typeof(window.subcribeTag) === 'object')
+      window.subcribeTag?.forEach(tag => {
         let value = tag.Value
         switch (tag.Path) {
           case prefix + 'Alarm_HT':
@@ -331,7 +332,6 @@ function MayNghienTinh(props) {
           default:
             break;
         }
-        console.log(tag)
       });
 
 

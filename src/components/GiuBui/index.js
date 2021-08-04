@@ -5,6 +5,7 @@ import SSwitch from '../SSwitch'
 import { makeStyles } from '@material-ui/core/styles';
 import { blue, green } from '@material-ui/core/colors'
 import { width } from '@material-ui/system';
+import GiuBuiComponent from '../NewComponents/GiuBuiComponent'
 const useStyles = makeStyles({
     card: {
         background: '#dcd7d7',
@@ -30,7 +31,7 @@ const useStyles = makeStyles({
 
 function GiuBui() {
     const classes = useStyles();
-    const prefix = 'Local Station/Control/Device1'
+    const prefix= 'RemoteStation1/PLC_GiuBuiTrungTam/'
     return (
         <div style={{ position: 'relative', margin: '0 auto', marginTop: 60,marginLeff:20,display:'flex',justifySelf:'center' }}>
             
@@ -53,11 +54,7 @@ function GiuBui() {
                     <Card className={classes.card}>
                         <CardContent >
                             <Typography variant='h6' className={classes.title}>GIŨ BỤI 1</Typography>
-                            <SSwitch tagName='Tag1' prefix={prefix} caption='Control_VTGB'></SSwitch>
-                            <SSwitch tagName='Tag2' prefix={prefix} caption='Control_AikGB1'  ></SSwitch>
-                            <SSwitch tagName='Tag3' prefix={prefix} caption='Control_AikGB2'  ></SSwitch>
-                            <SSwitch tagName='Tag3' prefix={prefix} caption='Control_AikGB3'  ></SSwitch>
-                            <SSwitch tagName='Tag3' prefix={prefix} caption='Control_GB'  ></SSwitch>
+                           <GiuBuiComponent prefix={prefix+'GiuBui1/'}></GiuBuiComponent>
                         </CardContent>
                     </Card>
                 </Grid>
@@ -70,12 +67,8 @@ function GiuBui() {
                 >
                     <Card className={classes.card}>
                         <CardContent >
-                            <Typography variant='h6' className={classes.title}>GIŨ BỤI 2</Typography>
-                            <SSwitch tagName='Tag1' prefix={prefix} caption='Control_VTGB'></SSwitch>
-                            <SSwitch tagName='Tag2' prefix={prefix} caption='Control_AikGB1'  ></SSwitch>
-                            <SSwitch tagName='Tag3' prefix={prefix} caption='Control_AikGB2'  ></SSwitch>
-                            <SSwitch tagName='Tag3' prefix={prefix} caption='Control_AikGB3'  ></SSwitch>
-                            <SSwitch tagName='Tag3' prefix={prefix} caption='Control_GB'  ></SSwitch>
+                        <Typography variant='h6' className={classes.title}>GIŨ BỤI 2</Typography>
+                        <GiuBuiComponent prefix={prefix+'GiuBui2/'}></GiuBuiComponent>
                         </CardContent>
                     </Card>
                 </Grid>

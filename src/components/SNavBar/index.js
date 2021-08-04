@@ -124,7 +124,11 @@ function SNavBar(props) {
 
               <Divider></Divider>
 
-              <ListItem className={classes.listItem}>
+              <ListItem className={classes.listItem}
+               onClick={() => {
+                history.replace(`${routeMatch.path}/phutroepvien`);
+                toggle();
+              }}>
                 <ListItemText>
                   PHỤ TRỢ ÉP VIÊN
                 </ListItemText>

@@ -25,6 +25,7 @@ import { tagsFileState, tagsState } from "../../stateManager";
 import LoopIcon from "@material-ui/icons/Loop";
 import AutorenewIcon from "@material-ui/icons/Autorenew";
 import PropTypes from "prop-types";
+import { object } from "yup";
 
 
 const useStyles = makeStyles({
@@ -34,7 +35,7 @@ const useStyles = makeStyles({
     minWidth: 350,
     // minWidth:480
     background: '#18191a',
-    borderRadius: 12,
+    // borderRadius: 12,
     padding: 0
   },
   cardheader_root: {
@@ -48,7 +49,7 @@ const useStyles = makeStyles({
   },
   card_actionArea: {
     margin: 0,
-    padding: 5,
+    // padding: 5,
     border: 'solid gray 1px',
     marginTop:-30
   },
@@ -269,7 +270,8 @@ function MaynghienTho1(props) {
     const timer = setInterval(() => {
       console.log('May nghien tho 1');
       console.log(prefix)
-      window.subcribeTag && window.subcribeTag?.forEach(tag => {
+      if(typeof(window.subcribeTag) === 'object')
+      window.subcribeTag?.forEach(tag => {
         let value = tag.Value
         switch (tag.Path) {
           case prefix + 'Alarm_HT':
@@ -338,12 +340,8 @@ function MaynghienTho1(props) {
           default:
             break;
         }
-        console.log(tag)
       });
-
-
     }, 3000);
-
     return () => {
       clearInterval(timer)
     }
@@ -461,7 +459,7 @@ function MaynghienTho1(props) {
                         style={{
                           fontSize: "2.5rem",
                           margin: 0,
-                          color: PL_FW_MN ? "cyan" : "#333",
+                          color: PL_RV_MN ? "cyan" : "#333",
                         }}
                       ></LoopIcon>
                       <Typography style={{ color: '#c1ecaa' }}>

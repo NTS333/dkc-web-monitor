@@ -7,6 +7,8 @@ import { blue, green } from '@material-ui/core/colors'
 import { width } from '@material-ui/system';
 import KhoNghienTho_SauSay from '../NewComponents/KhoNghienTho_Sausay'
 import KhoNghienTho from '../NewComponents/KhoNghienTho';
+import KhoSauSay from '../NewComponents/KhoSauSay';
+import KhoNghienTinh from '../NewComponents/KhoNghienTinh';
 const useStyles = makeStyles({
     card: {
         background: '#18191a',
@@ -33,7 +35,9 @@ const useStyles = makeStyles({
 
 function Kho() {
     const classes = useStyles();
-    const prefix = 'Local Station/Control/Device1'
+    const prefixNTho = 'RemoteStation1/PLC_KhoNghienTho/KhoNghienTho/'
+    const prefixSSay = 'RemoteStation1/PLC_KhoSauSay/KhoSauSay/'
+    const prefixNTinh = 'RemoteStation1/PLC_KhoNghienTinh/KhoNghienTinh/'
     return (
         <div style={{ position: 'relative', margin: '0 auto', marginTop: 50,marginLeff:20,display:'flex',justifySelf:'center' }}>
             
@@ -57,7 +61,7 @@ function Kho() {
                 <Card className={classes.card}>
                     <CardContent >
                         <Typography variant='h6' className={classes.title}>KHO NGHIỀN THÔ</Typography>
-                       <KhoNghienTho></KhoNghienTho>
+                       <KhoNghienTho prefix={prefixNTho}></KhoNghienTho>
                     </CardContent>
                 </Card>
             </Grid>
@@ -72,7 +76,7 @@ function Kho() {
                 <Card className={classes.card}>
                     <CardContent >
                         <Typography variant='h6' className={classes.title}>KHO SAY SẤY</Typography>
-                        <KhoNghienTho_SauSay></KhoNghienTho_SauSay>
+                        <KhoSauSay prefix={prefixSSay}></KhoSauSay>
 
                     </CardContent>
                 </Card>
@@ -87,13 +91,7 @@ function Kho() {
                 <Card className={classes.card}>
                     <CardContent >
                         <Typography variant='h6' className={classes.title}>KHO NGHIỀN TINH</Typography>
-                        <SSwitch tagName='Tag1' prefix={prefix} caption='BƠM DẦU 1'></SSwitch>
-                        <SSwitch tagName='Tag2' prefix={prefix} caption='BƠM DẦU 2'></SSwitch>
-                        <SSwitch tagName='Tag3' prefix={prefix} caption='CHẠY THUẬN VÍT TẢI CẤP LIỆU 1'></SSwitch>
-                        <SSwitch tagName='Tag3' prefix={prefix} caption='CHẠY NGHỊCH VÍT TẢI CẤP LIỆU 1'></SSwitch>
-                        <SSwitch tagName='Tag3' prefix={prefix} caption='CHẠY THUẬN VÍT TẢI CẤP LIỆU 2'></SSwitch>
-                        <SSwitch tagName='Tag3' prefix={prefix} caption='CHẠY NGHỊCH VÍT TẢI CẤP LIỆU 2'></SSwitch>
-                        <SSwitch tagName='Tag3' prefix={prefix} caption='VÍT TẢI RA LIỆU'></SSwitch>
+                        <KhoNghienTinh prefix={prefixNTinh}></KhoNghienTinh>
 
                     </CardContent>
                 </Card>

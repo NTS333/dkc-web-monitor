@@ -5,6 +5,7 @@ import SSwitch from '../SSwitch'
 import { makeStyles } from '@material-ui/core/styles';
 import { blue, green } from '@material-ui/core/colors'
 import { width } from '@material-ui/system';
+import LoSayComponent from '../NewComponents/LoSayComponent';
 const useStyles = makeStyles({
     card: {
         background: '#dcd7d7',
@@ -30,7 +31,8 @@ const useStyles = makeStyles({
 
 function LoSay() {
     const classes = useStyles();
-    const prefix = 'Local Station/Control/Device1'
+    // const prefix = 'Local Station/Control/Device1'
+    const prefix = 'RemoteStation1/PLC_LoSay/LoSay/'
     return (
         <div style={{ position: 'relative', margin: '0 auto', marginTop: 50,marginLeff:20,display:'flex',justifySelf:'center' }}>
             
@@ -53,7 +55,8 @@ function LoSay() {
                     <Card className={classes.card}>
                         <CardContent >
                             <Typography variant='h6' className={classes.title}>LÒ SẤY</Typography>
-                            <SSwitch tagName='Tag1' prefix={prefix} caption='Control_QH_Main_LS'></SSwitch>
+                            <LoSayComponent prefix={prefix}></LoSayComponent>
+                            {/* <SSwitch tagName='Tag1' prefix={prefix} caption='Control_QH_Main_LS'></SSwitch>
                             <SSwitch tagName='Tag2' prefix={prefix} caption='Control_QH_TLo_LS'  ></SSwitch>
                             <SSwitch tagName='Tag3' prefix={prefix} caption='Control_Quay_Bon_LS'  ></SSwitch>
                             <SSwitch tagName='Tag3' prefix={prefix} caption='Control_Air_Ra_Lieu_LS'  ></SSwitch>
@@ -65,7 +68,7 @@ function LoSay() {
                             <SSwitch tagName='Tag3' prefix={prefix} caption='Control_GTai'  ></SSwitch>
                             <SSwitch tagName='Tag3' prefix={prefix} caption='Control_VTai_Bin_LS'  ></SSwitch>
                             <SSwitch tagName='Tag3' prefix={prefix} caption='Control_VTai_Main'  ></SSwitch>
-                            <SSwitch tagName='Tag3' prefix={prefix} caption='Control_Air_IN_LS'  ></SSwitch>
+                            <SSwitch tagName='Tag3' prefix={prefix} caption='Control_Air_IN_LS'  ></SSwitch> */}
                         </CardContent>
                     </Card>
                 </Grid>

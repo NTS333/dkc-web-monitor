@@ -142,7 +142,7 @@ const useStyles = makeStyles((theme) => (
   }
 ));
 
-function KhoNghienTinh(props) {
+function KhoSauSay(props) {
   const handleOpenCtrPanel = (e) => {
     setisOpen(true);
   };
@@ -178,7 +178,6 @@ function KhoNghienTinh(props) {
   const [HI_LV2, setHI_LV2] = useState(false);
   const [HI_LV_Cylone1, setHI_LV_Cylone1] = useState(false);
   const [HI_LV_Cylone2, setHI_LV_Cylone2] = useState(false);
-  
   const [HI_LV_Screw, setHI_LV_Screw] = useState(false);
   const [PL_FW_FD1, setPL_FW_FD1] = useState(false);
   const [PL_FW_FD2, setPL_FW_FD2] = useState(false);
@@ -212,116 +211,116 @@ function KhoNghienTinh(props) {
       console.log('Kho nghiền thô');
       console.log(prefix)
       if(typeof(window.subcribeTag) === 'object')
-      window.subcribeTag?.forEach(tag => {
+       window.subcribeTag?.forEach(tag => {
         let value = tag.Value
         switch (tag.Path) {
-          case prefix + 'ALARM_C':
+          case prefix + 'ALARM_B':
             setAlarm_HT(value == "1");
             break;
-          case prefix + 'SCADA_C':
+          case prefix + 'SCADA_B':
             setPL_SCADA(value == "1");
             break;
-          case prefix + 'PL_Auto_C':
+          case prefix + 'PL_Auto_B':
             setPL_Auto(value == "1");
             break;
-          case prefix + 'PL_Man_C':
+          case prefix + 'PL_Man_B':
             setPL_Manual(value == "1");
             break;
-          case prefix + 'PL_CD1_C':
+          case prefix + 'PL_CD1_B':
             setPL_CD1(value == "1");
             break;
-          case prefix + 'PL_CD2_C':
+          case prefix + 'PL_CD2_B':
             setPL_CD2(value == "1");
             break;
-          case prefix + 'PL_CD3_C':
+          case prefix + 'PL_CD3_B':
             setPL_CD3(value == '1')
             break;
-          case prefix + 'Alarm_XL1C':
+          case prefix + 'Alarm_XL1B':
             setAlarm_XL1(value == '1')
             break;
-          case prefix + 'Alarm_XL2C':
+          case prefix + 'Alarm_XL2B':
             setAlarm_XL2(value == '1')
             break;
-          case prefix + 'Alarm_XL3C':
+          case prefix + 'Alarm_XL3B':
             setAlarm_XL3(value == '1')
             break;
-          case prefix + 'Alarm_XL4C':
+          case prefix + 'Alarm_XL4B':
             setAlarm_XL4(value == '1')
             break;
-          case prefix + 'HI_LV_C1':
+          case prefix + 'HI_LV_B1':
             setHI_LV1(value == '1')
             break;
-          case prefix + 'HI_LV_C2':
+          case prefix + 'HI_LV_B2':
             setHI_LV2(value == '1')
             break;
-          case prefix + 'HI_LV_CyloneC1':
+          case prefix + 'HI_LV_CyloneB1':
             setHI_LV_Cylone1(value == '1')
             break;
-          case prefix + 'HI_LV_CyloneC2':
+          case prefix + 'HI_LV_CyloneB2':
             setHI_LV_Cylone2(value == '1')
             break;
-          
-            case prefix + 'HI_LV_Screw_C':
+         
+            case prefix + 'HI_LV_Screw_B':
               setHI_LV_Screw(value == '1')
               break;
-          case prefix + 'PL_FW_FD_C1':
+          case prefix + 'PL_FW_FD_B1':
             setPL_FW_FD1(value == '1')
             break;
-          case prefix + 'PL_FW_FD_C2':
+          case prefix + 'PL_FW_FD_B2':
             setPL_FW_FD2(value == '1')
             break;
-          case prefix + 'PL_RV_FD_C1':
+          case prefix + 'PL_RV_FD_B1':
             setPL_RV_FD1(value == '1')
             break;
-          case prefix + 'PL_RV_FD_C2':
+          case prefix + 'PL_RV_FD_B2':
             setPL_RV_FD2(value == '1')
             break;
-          case prefix + 'PL_Screw_C':
+          case prefix + 'PL_Screw_B':
             setPL_Screw(value == '1')
             break;
-          case prefix + 'PL_Pump_C1':
+          case prefix + 'PL_Pump_B1':
             setPL_Pump1(value == '1')
             break;
-          case prefix + 'PL_Pump_C2':
+          case prefix + 'PL_Pump_B2':
             setPL_Pump2(value == '1')
             break;
-          case prefix + 'ST_FW1_Vale_C':
+          case prefix + 'ST_FW1_Vale_B':
             setST_FW_Vale1(value == '1')
             break;
-          case prefix + 'ST_FW2_Vale_C':
+          case prefix + 'ST_FW2_Vale_B':
             setST_FW_Vale2(value == '1')
             break;
-          case prefix + 'ST_FW3_Vale_C':
+          case prefix + 'ST_FW3_Vale_B':
             setST_FW_Vale3(value == '1')
             break;
-          case prefix + 'ST_FW4_Vale_C':
+          case prefix + 'ST_FW4_Vale_B':
             setST_FW_Vale4(value == '1')
             break;
-          case prefix + 'ST_RV1_Vale_C':
+          case prefix + 'ST_RV1_Vale_B':
             setST_RV_Vale1(value == '1')
             break;
-          case prefix + 'ST_RV2_Vale_C':
+          case prefix + 'ST_RV2_Vale_B':
             setST_RV_Vale2(value == '1')
             break;
-          case prefix + 'ST_RV3_Vale_C':
+          case prefix + 'ST_RV3_Vale_B':
             setST_RV_Vale3(value == '1')
             break;
-          case prefix + 'ST_RV4_Vale_C':
+          case prefix + 'ST_RV4_Vale_B':
             setST_RV_Vale4(value == '1')
             break;
-          case prefix + 'PL_OVL_FD_C1':
+          case prefix + 'PL_OVL_FD_B1':
             setPL_OVL_FD1(value == '1')
             break;
-          case prefix + 'PL_OVL_FD_C2':
+          case prefix + 'PL_OVL_FD_B2':
             setPL_OVL_FD2(value == '1')
             break;
-          case prefix + 'PL_OVL_Screw_C':
+          case prefix + 'PL_OVL_Screw_B':
             setPL_OVL_Screw(value == '1')
             break;
-          case prefix + 'PL_OVL_Pump_C1':
+          case prefix + 'PL_OVL_Pump_B1':
             setPL_OVL_Pump1(value == '1')
             break;
-          case prefix + 'PL_OVL_Pump_C2':
+          case prefix + 'PL_OVL_Pump_B2':
             setPL_OVL_Pump2(value == '1')
             break;
 
@@ -510,7 +509,7 @@ function KhoNghienTinh(props) {
                     </Grid>
                   </Grid>
 
-                  {/* <Grid item xs={6} style={{ textAlign: "center" }}>
+                  <Grid item xs={6} style={{ textAlign: "center" }}>
                     <Grid container>
                       <Grid item xs={12}>
                         <Typography variant='h6'>Xy lanh 3</Typography>
@@ -547,9 +546,9 @@ function KhoNghienTinh(props) {
                         </div>
                       </Grid>
                     </Grid>
-                  </Grid> */}
+                  </Grid>
 
-                  {/* <Grid item xs={6} style={{ textAlign: "center" }}>
+                  <Grid item xs={6} style={{ textAlign: "center" }}>
                     <Grid container>
                       <Grid item xs={12}>
                         <Typography variant='h6'>Xy lanh 4</Typography>
@@ -586,7 +585,7 @@ function KhoNghienTinh(props) {
                         </div>
                       </Grid>
                     </Grid>
-                  </Grid> */}
+                  </Grid>
 
                 </Grid>
               </CardContent>
@@ -814,6 +813,7 @@ function KhoNghienTinh(props) {
                     </Grid>
                   </Grid>
                 </Grid>
+              
                 {/* <Grid item xs={6} style={{ textAlign: "center" }}>
                   <Grid container>
                     <Grid item xs={12}>
@@ -833,15 +833,15 @@ function KhoNghienTinh(props) {
                     </Grid>
 
                   </Grid>
-                </Grid>
-                <Grid item xs={6} style={{ textAlign: "center" }}>
+                </Grid> */}
+                {/* <Grid item xs={6} style={{ textAlign: "center" }}>
                   <Grid container>
                     <Grid item xs={12}>
                       <Typography variant='h6'>Cylone 4</Typography>
                     </Grid>
                     <Grid xs={12}>
                       <div style={{ textAlign: "center", marginTop: -30 }}>
-                      
+                        
                         <img width={130} src={HI_LV_Cylone22?VTFull_On:VTFull_Off} alt="" style={{ transform: 'rotate(270deg)' }} />
                       </div>
                       <div style={{ textAlign: "center", marginBottom: 0, marginTop: -30 }}>
@@ -889,14 +889,15 @@ function KhoNghienTinh(props) {
 
                   </Grid>
                 </Grid>
-                {/* <Grid item xs={6} style={{ textAlign: "center" }}>
+                <Grid item xs={6} style={{ textAlign: "center" }}>
                   <Grid container>
                     <Grid item xs={12}>
                       <Typography variant='h6'>Bơm dầu 2</Typography>
                     </Grid>
                     <Grid xs={12}>
                       <div style={{ textAlign: "center" }}>
-                       
+                        {/* <LoopIcon className={classes.xylanh_icon_Back}></LoopIcon>
+                     */}
                         <img width={130} src={PL_Pump2?BDauOn:BDauOff} alt="" 
                          style={{ backgroundColor: PL_OVL_Pump2?'red':''}}
                         />
@@ -904,7 +905,7 @@ function KhoNghienTinh(props) {
 
                     </Grid>
                   </Grid>
-                </Grid> */}
+                </Grid>
 
               </Grid>
             </CardContent>
@@ -920,7 +921,7 @@ function KhoNghienTinh(props) {
     </>
   );
 }
-// KhoNghienTinh.propTypes = {
+// KhoSauSay.propTypes = {
 //   tagList: PropTypes.object,
 // };
-export default KhoNghienTinh;
+export default KhoSauSay;
