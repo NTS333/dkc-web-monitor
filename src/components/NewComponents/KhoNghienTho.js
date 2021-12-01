@@ -331,7 +331,7 @@ function KhoNghienTho(props) {
           case prefix + 'PL_OVL_Pump_A2':
             setPL_OVL_Pump2(value == '1')
             break;
-
+    
           default:
             break;
         }
