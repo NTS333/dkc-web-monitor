@@ -30,7 +30,7 @@ const useStyles = makeStyles({
 
 function LoDot() {
     const classes = useStyles();
-    const prefix = 'Local Station/Control/Device1'
+    const prefix = 'RemoteStation1/PLC_Control/LoDot'
     return (
         <div style={{ position: 'relative', margin: '0 auto', marginTop: 60,marginLeff:20,display:'flex',justifySelf:'center' }}>
             
@@ -53,13 +53,11 @@ function LoDot() {
                     <Card className={classes.card}>
                         <CardContent >
                             <Typography variant='h6' className={classes.title}>LÒ ĐỐT 1</Typography>
-                            <SSwitch tagName='Tag1' prefix={prefix} caption='Control_QHMain_LD'></SSwitch>
-                            <SSwitch tagName='Tag2' prefix={prefix} caption='Control_QH_Mix_LD'  ></SSwitch>
-                            <SSwitch tagName='Tag3' prefix={prefix} caption='Control_QH_Up_LD'  ></SSwitch>
-                            <SSwitch tagName='Tag3' prefix={prefix} caption='Control_BTCL_LD'  ></SSwitch>
-                            <SSwitch tagName='Tag3' prefix={prefix} caption='Control_VTCL1_LD'  ></SSwitch>
-                            <SSwitch tagName='Tag3' prefix={prefix} caption='Control_XL1_LD'  ></SSwitch>
-                            <SSwitch tagName='Tag3' prefix={prefix} caption='Control_XL2_LD'  ></SSwitch>
+                            <SSwitch tagName='QHMain' prefix={prefix + '1'} caption='QUẠT HÚT CHÍNH'></SSwitch>
+                            <SSwitch tagName='QHUp' prefix={prefix + '1'} caption='QUẠT HÚT TRÊN'  ></SSwitch>
+                            <SSwitch tagName='BTCL' prefix={prefix + '1'} caption='BĂNG TẢI CẤP LIỆU'  ></SSwitch>
+                            <SSwitch tagName='VTVL' prefix={prefix + '1'} caption='VÍT TẢI VÀO LIỆU'  ></SSwitch>
+                           
                         </CardContent>
                     </Card>
                 </Grid>
@@ -73,13 +71,10 @@ function LoDot() {
                     <Card className={classes.card}>
                         <CardContent >
                             <Typography variant='h6' className={classes.title}>LÒ ĐỐT 2</Typography>
-                            <SSwitch tagName='Tag1' prefix={prefix} caption='Control_QHMain_LD'></SSwitch>
-                            <SSwitch tagName='Tag2' prefix={prefix} caption='Control_QH_Mix_LD'  ></SSwitch>
-                            <SSwitch tagName='Tag3' prefix={prefix} caption='Control_QH_Up_LD'  ></SSwitch>
-                            <SSwitch tagName='Tag3' prefix={prefix} caption='Control_BTCL_LD'  ></SSwitch>
-                            <SSwitch tagName='Tag3' prefix={prefix} caption='Control_VTCL1_LD'  ></SSwitch>
-                            <SSwitch tagName='Tag3' prefix={prefix} caption='Control_XL1_LD'  ></SSwitch>
-                            <SSwitch tagName='Tag3' prefix={prefix} caption='Control_XL2_LD'  ></SSwitch>
+                            <SSwitch tagName='QHMain' prefix={prefix +'2'} caption='QUẠT HÚT CHÍNH'></SSwitch>
+                            <SSwitch tagName='QHUp' prefix={prefix +'2'} caption='QUẠT HÚT TRÊN'  ></SSwitch>
+                            <SSwitch tagName='BTCL' prefix={prefix +'2'} caption='BĂNG TẢI CẤP LIỆU'  ></SSwitch>
+                            <SSwitch tagName='VTVL' prefix={prefix +'2'} caption='VÍT TẢI VÀO LIỆU'  ></SSwitch>
                         </CardContent>
                     </Card>
                 </Grid>

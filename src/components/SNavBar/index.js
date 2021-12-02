@@ -14,6 +14,9 @@ import { Box, Typography } from '@material-ui/core'
 import PropTypes from 'prop-types';
 import { green, orange } from '@material-ui/core/colors';
 import { useParams, useRouteMatch, useHistory } from 'react-router';
+import {NavLink} from 'react-router-dom'
+import './index.css'
+import { Helmet } from 'react-helmet';
 const useStyles = makeStyles({
   list: {
     width: 250,
@@ -30,10 +33,16 @@ const useStyles = makeStyles({
       cursor: 'pointer',
       // pointerEvents: 'all !important'
     }
+  },
+  active:{
+    backgroundColor:'orange',
+    textDecoration:'none'
   }
 });
 
 function SNavBar(props) {
+  const [title, setTitle] = useState('MÁY NGHIỀN')
+  const activeStyle = { color: 'blue' };
   const classes = useStyles();
   const { open, toggle } = props;
   // const [open, setOpen] = useState(false);
@@ -49,12 +58,15 @@ function SNavBar(props) {
   return (
     <div>
       <React.Fragment>
+        <Helmet>
+          <title>{title}</title>
+        </Helmet>
         <SwipeableDrawer
           anchor='left'
           open={open}
           onClose={toggle}
           onOpen={toggle}
-
+          
         >
           <div className={classes.list}>
             <Box textAlign='center' p={2} className={classes.header}>
@@ -63,11 +75,16 @@ function SNavBar(props) {
             <Divider></Divider>
             <List>
               <ListItem className={classes.listItem}
+              
                 onClick={() => {
                   history.replace(`${routeMatch.path}/maynghien`);
                   toggle();
+                  setTitle('MÁY NGHIỀN')
                 }}
               >
+               
+                {/* <NavLink to={routeMatch.path+"/maynghien}"}  activeClassName='active' style={{textDecoration:'none'}}> MÁY NGHIỀN</NavLink> */}
+                          
                 <ListItemText>
                   MÁY NGHIỀN
                 </ListItemText>
@@ -77,8 +94,10 @@ function SNavBar(props) {
                 onClick={() => {
                   history.replace(`${routeMatch.path}/kho`);
                   toggle();
+                  setTitle('KHO');
                 }}
               >
+                {/* <NavLink to={routeMatch.path+"/kho}"}    activeClassName='active' >KHO</NavLink> */}
                 <ListItemText >
                   KHO
                 </ListItemText>
@@ -90,6 +109,7 @@ function SNavBar(props) {
                 onClick={() => {
                   history.replace(`${routeMatch.path}/giubui`);
                   toggle();
+                  setTitle('GIŨ BỤI');
                 }}
               >
                 <ListItemText>
@@ -103,6 +123,7 @@ function SNavBar(props) {
               onClick={() => {
                 history.replace(`${routeMatch.path}/lodot`);
                 toggle();
+                setTitle('LÒ ĐỐT')
               }}
               >
                 <ListItemText>
@@ -115,6 +136,8 @@ function SNavBar(props) {
                onClick={() => {
                 history.replace(`${routeMatch.path}/losay`);
                 toggle();
+                setTitle('LÒ SẤY')
+
               }}
               >
                 <ListItemText>
@@ -124,7 +147,14 @@ function SNavBar(props) {
 
               <Divider></Divider>
 
-              <ListItem className={classes.listItem}>
+              <ListItem className={classes.listItem}
+               onClick={() => {
+                history.replace(`${routeMatch.path}/ptev`);
+                toggle();
+                setTitle('PHỤ TRỢ ÉP VIÊN')
+
+              }}
+              >
                 <ListItemText>
                   PHỤ TRỢ ÉP VIÊN
                 </ListItemText>
@@ -136,6 +166,8 @@ function SNavBar(props) {
                 onClick={() => {
                   history.replace(`${routeMatch.path}/epvien`);
                   toggle();
+                  setTitle('ÉP VIÊN')
+
                 }}
               >
                 <ListItemText>

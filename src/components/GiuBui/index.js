@@ -30,7 +30,7 @@ const useStyles = makeStyles({
 
 function GiuBui() {
     const classes = useStyles();
-    const prefix = 'Local Station/Control/Device1'
+    const prefix = 'RemoteStation1/PLC_Control/GiuBui'
     return (
         <div style={{ position: 'relative', margin: '0 auto', marginTop: 60,marginLeff:20,display:'flex',justifySelf:'center' }}>
             
@@ -53,11 +53,12 @@ function GiuBui() {
                     <Card className={classes.card}>
                         <CardContent >
                             <Typography variant='h6' className={classes.title}>GIŨ BỤI 1</Typography>
-                            <SSwitch tagName='Tag1' prefix={prefix} caption='Control_VTGB'></SSwitch>
-                            <SSwitch tagName='Tag2' prefix={prefix} caption='Control_AikGB1'  ></SSwitch>
-                            <SSwitch tagName='Tag3' prefix={prefix} caption='Control_AikGB2'  ></SSwitch>
-                            <SSwitch tagName='Tag3' prefix={prefix} caption='Control_AikGB3'  ></SSwitch>
-                            <SSwitch tagName='Tag3' prefix={prefix} caption='Control_GB'  ></SSwitch>
+                            <SSwitch tagName='Airlock1' prefix={prefix + '1'} caption='Airlock 1'></SSwitch>
+                            <SSwitch tagName='Airlock2' prefix={prefix + '1'} caption='Airlock 2'  ></SSwitch>
+                            <SSwitch tagName='Airlock3' prefix={prefix + '1'} caption='Airlock 3'  ></SSwitch>
+                            <SSwitch tagName='GB' prefix={prefix + '1'} caption='Giũ bụi'  ></SSwitch>
+                            <SSwitch tagName='QH' prefix={prefix + '1'} caption='Quạt hút'  ></SSwitch>
+                            <SSwitch tagName='VT' prefix={prefix + '1'} caption='Vít tải'  ></SSwitch>
                         </CardContent>
                     </Card>
                 </Grid>
@@ -71,11 +72,12 @@ function GiuBui() {
                     <Card className={classes.card}>
                         <CardContent >
                             <Typography variant='h6' className={classes.title}>GIŨ BỤI 2</Typography>
-                            <SSwitch tagName='Tag1' prefix={prefix} caption='Control_VTGB'></SSwitch>
-                            <SSwitch tagName='Tag2' prefix={prefix} caption='Control_AikGB1'  ></SSwitch>
-                            <SSwitch tagName='Tag3' prefix={prefix} caption='Control_AikGB2'  ></SSwitch>
-                            <SSwitch tagName='Tag3' prefix={prefix} caption='Control_AikGB3'  ></SSwitch>
-                            <SSwitch tagName='Tag3' prefix={prefix} caption='Control_GB'  ></SSwitch>
+                            <SSwitch tagName='Airlock1' prefix={prefix + '2'} caption='Airlock 1'></SSwitch>
+                            <SSwitch tagName='Airlock2' prefix={prefix + '2'} caption='Airlock 2'  ></SSwitch>
+                            <SSwitch tagName='Airlock3' prefix={prefix + '2'} caption='Airlock 3'  ></SSwitch>
+                            <SSwitch tagName='GB' prefix={prefix + '2'} caption='Giũ bụi'  ></SSwitch>
+                            <SSwitch tagName='QH' prefix={prefix + '2'} caption='Quạt hút'  ></SSwitch>
+                            <SSwitch tagName='VT' prefix={prefix + '2'} caption='Vít tải'  ></SSwitch>
                         </CardContent>
                     </Card>
                 </Grid>

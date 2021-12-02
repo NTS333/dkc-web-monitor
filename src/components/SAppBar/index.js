@@ -8,12 +8,14 @@ import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import SNavBar from '../SNavBar';
 import Kho from '../Kho';
-import {Switch,Route,useRouteMatch,Link, Redirect} from 'react-router-dom'
+import {Switch,Route,useRouteMatch,Link, Redirect,useHistory} from 'react-router-dom'
 import MayNghien from '../MayNghien';
 import MayEpVien from '../MayEpVien';
 import GiuBui from '../GiuBui';
 import LoDot from '../LoDot';
 import LoSay from '../LoSay';
+import { Hidden } from '@material-ui/core';
+import PTEV from '../PTEV';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -34,9 +36,13 @@ export default function SAppBar() {
   const classes = useStyles();
   const [open, setOpen] = useState(false);
   const routeMatch = useRouteMatch();
-  const toggle = () => {
+  const history = useHistory();
+  const toggle = () => {  
     setOpen(!open);
   };
+  const handleLogout = ()=>{
+    history.push('/login')
+  }
   const toggleDrawer = useCallback(
     (open) => (event) => {
       if (event && event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
@@ -56,8 +62,10 @@ export default function SAppBar() {
           <Typography variant="h6" className={classes.title}>
             DKC NGHỆ AN
           </Typography>
-          <Typography id='status' className={classes.status}>Disconnected</Typography>
-          <Button style={{background:'#e9d8a6',color:'black',width:90,margin:10,marginRight:0}} variant='text' ><b>Log out</b></Button>
+         <Hidden smDown>
+         <Typography id='status' className={classes.status}>Disconnected</Typography>
+         </Hidden>
+          <Button style={{background:'#e9d8a6',color:'black',width:90,margin:10,marginRight:0}} variant='text' onClick={handleLogout}><b>Log out</b></Button>
         </Toolbar>
       </AppBar>
       <SNavBar open={open} toggle={toggle}></SNavBar>
@@ -77,8 +85,8 @@ export default function SAppBar() {
           <Route path={routeMatch.path+'/losay'}>
               <LoSay></LoSay>
           </Route>
-          <Route path={routeMatch.path+'/phutroepvien'}>
-              <Kho></Kho>
+          <Route path={routeMatch.path+'/ptev'}>
+              <PTEV></PTEV>
           </Route>
           <Route path={routeMatch.path+'/epvien'}>
               <MayEpVien></MayEpVien>

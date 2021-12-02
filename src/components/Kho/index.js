@@ -32,6 +32,9 @@ const useStyles = makeStyles({
 function Kho() {
     const classes = useStyles();
     const prefix = 'Local Station/Control/Device1'
+    const prefix_khonghientho = 'RemoteStation1/PLC_Control/KhoNghienTho'
+    const prefix_khosausay = 'RemoteStation1/PLC_Control/KhoSauSay'
+    const prefix_khonghientinh = 'RemoteStation1/PLC_Control/KhoNghienTinh'
     return (
         <div style={{ position: 'relative', margin: '0 auto', marginTop: 60,marginLeff:20,display:'flex',justifySelf:'center' }}>
             
@@ -55,13 +58,13 @@ function Kho() {
                 <Card className={classes.card}>
                     <CardContent >
                         <Typography variant='h6' className={classes.title}>KHO NGHIỀN THÔ</Typography>
-                        <SSwitch tagName='Tag1' prefix={prefix} caption='BƠM DẦU 1'></SSwitch>
-                        <SSwitch tagName='Tag1' prefix={prefix} caption='BƠM DẦU 2'></SSwitch>
-                        <SSwitch tagName='Tag1' prefix={prefix} caption='CHẠY THUẬN VÍT TẢI CẤP LIỆU 1'></SSwitch>
-                        <SSwitch tagName='Tag1' prefix={prefix} caption='CHẠY NGHỊCH VÍT TẢI CẤP LIỆU 1'></SSwitch>
-                        <SSwitch tagName='Tag1' prefix={prefix} caption='CHẠY THUẬN VÍT TẢI CẤP LIỆU 2'></SSwitch>
-                        <SSwitch tagName='Tag1' prefix={prefix} caption='CHẠY NGHỊCH VÍT TẢI CẤP LIỆU 2'></SSwitch>
-                        <SSwitch tagName='Tag1' prefix={prefix} caption='VÍT TẢI RA LIỆU'></SSwitch>
+                        <SSwitch tagName='PumpA1' prefix={prefix_khonghientho} caption='BƠM DẦU 1'></SSwitch>
+                        <SSwitch tagName='PumpA2' prefix={prefix_khonghientho} caption='BƠM DẦU 2'></SSwitch>
+                        <SSwitch tagName='RVFDA1' prefix={prefix_khonghientho} caption='CHẠY NGHỊCH VÍT TẢI CẤP LIỆU 1'></SSwitch>
+                        <SSwitch tagName='FWFDA1' prefix={prefix_khonghientho} caption='CHẠY THUẬN VÍT TẢI CẤP LIỆU 1'></SSwitch>
+                        <SSwitch tagName='RVFDA2' prefix={prefix_khonghientho} caption='CHẠY NGHỊCH VÍT TẢI CẤP LIỆU 2'></SSwitch>
+                        <SSwitch tagName='FWFDA2' prefix={prefix_khonghientho} caption='CHẠY THUẬN VÍT TẢI CẤP LIỆU 2'></SSwitch>
+                        <SSwitch tagName='ScrewA' prefix={prefix_khonghientho} caption='VÍT TẢI RA LIỆU'></SSwitch>
 
                     </CardContent>
                 </Card>
@@ -77,12 +80,13 @@ function Kho() {
                 <Card className={classes.card}>
                     <CardContent >
                         <Typography variant='h6' className={classes.title}>KHO SAY SẤY</Typography>
-                        <SSwitch tagName='Tag1' prefix={prefix} caption='BƠM DẦU 1'></SSwitch>
-                        <SSwitch tagName='Tag1' prefix={prefix} caption='CHẠY THUẬN VÍT TẢI CẤP LIỆU 1'></SSwitch>
-                        <SSwitch tagName='Tag1' prefix={prefix} caption='CHẠY NGHỊCH VÍT TẢI CẤP LIỆU 1'></SSwitch>
-                        <SSwitch tagName='Tag1' prefix={prefix} caption='CHẠY THUẬN VÍT TẢI CẤP LIỆU 2'></SSwitch>
-                        <SSwitch tagName='Tag1' prefix={prefix} caption='CHẠY NGHỊCH VÍT TẢI CẤP LIỆU 2'></SSwitch>
-                        <SSwitch tagName='Tag1' prefix={prefix} caption='VÍT TẢI RA LIỆU'></SSwitch>
+                        <SSwitch tagName='PumpB1' prefix={prefix_khosausay} caption='BƠM DẦU 1'></SSwitch>
+                        <SSwitch tagName='PumpB2' prefix={prefix_khosausay} caption='BƠM DẦU 2'></SSwitch>
+                        <SSwitch tagName='RVFDB1' prefix={prefix_khosausay} caption='CHẠY NGHỊCH VÍT TẢI CẤP LIỆU 1'></SSwitch>
+                        <SSwitch tagName='FWFDB1' prefix={prefix_khosausay} caption='CHẠY THUẬN VÍT TẢI CẤP LIỆU 1'></SSwitch>
+                        <SSwitch tagName='RVFDB2' prefix={prefix_khosausay} caption='CHẠY NGHỊCH VÍT TẢI CẤP LIỆU 2'></SSwitch>
+                        <SSwitch tagName='FWFDB2' prefix={prefix_khosausay} caption='CHẠY THUẬN VÍT TẢI CẤP LIỆU 2'></SSwitch>
+                        <SSwitch tagName='ScrewB' prefix={prefix_khosausay} caption='VÍT TẢI RA LIỆU'></SSwitch>
 
                     </CardContent>
                 </Card>
@@ -97,13 +101,12 @@ function Kho() {
                 <Card className={classes.card}>
                     <CardContent >
                         <Typography variant='h6' className={classes.title}>KHO NGHIỀN TINH</Typography>
-                        <SSwitch tagName='Tag1' prefix={prefix} caption='BƠM DẦU 1'></SSwitch>
-                        <SSwitch tagName='Tag2' prefix={prefix} caption='BƠM DẦU 2'></SSwitch>
-                        <SSwitch tagName='Tag3' prefix={prefix} caption='CHẠY THUẬN VÍT TẢI CẤP LIỆU 1'></SSwitch>
-                        <SSwitch tagName='Tag3' prefix={prefix} caption='CHẠY NGHỊCH VÍT TẢI CẤP LIỆU 1'></SSwitch>
-                        <SSwitch tagName='Tag3' prefix={prefix} caption='CHẠY THUẬN VÍT TẢI CẤP LIỆU 2'></SSwitch>
-                        <SSwitch tagName='Tag3' prefix={prefix} caption='CHẠY NGHỊCH VÍT TẢI CẤP LIỆU 2'></SSwitch>
-                        <SSwitch tagName='Tag3' prefix={prefix} caption='VÍT TẢI RA LIỆU'></SSwitch>
+                        <SSwitch tagName='PumpC1' prefix={prefix_khonghientinh} caption='BƠM DẦU 1'></SSwitch>
+                        <SSwitch tagName='RVFDC1' prefix={prefix_khonghientinh} caption='CHẠY NGHỊCH VÍT TẢI CẤP LIỆU 1'></SSwitch>
+                        <SSwitch tagName='FWFDC1' prefix={prefix_khonghientinh} caption='CHẠY THUẬN VÍT TẢI CẤP LIỆU 1'></SSwitch>
+                        <SSwitch tagName='RVFDC2' prefix={prefix_khonghientinh} caption='CHẠY NGHỊCH VÍT TẢI CẤP LIỆU 2'></SSwitch>
+                        <SSwitch tagName='FWFDC2' prefix={prefix_khonghientinh} caption='CHẠY THUẬN VÍT TẢI CẤP LIỆU 2'></SSwitch>
+                        <SSwitch tagName='ScrewC' prefix={prefix_khonghientinh} caption='VÍT TẢI RA LIỆU'></SSwitch>
 
                     </CardContent>
                 </Card>

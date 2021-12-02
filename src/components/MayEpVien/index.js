@@ -31,7 +31,7 @@ const useStyles = makeStyles({
 
 function MayEpVien() {
     const classes = useStyles();
-    const prefix = 'Local Station/Control/Device1'
+    const prefix = 'Local Station/PLC_Control/MayEp'
     return (
         <div style={{ position: 'relative', margin: '0 auto', marginTop: 60, marginLeff: 20, display: 'flex', justifySelf: 'center' }}>
 
@@ -55,11 +55,11 @@ function MayEpVien() {
                     <Card className={classes.card}>
                         <CardContent >
                             <Typography variant='h6' className={classes.title}>MÁY ÉP VIÊN 1</Typography>
-                            <SSwitch tagName='Tag1' prefix={prefix} caption='Control M'></SSwitch>
-                            <SSwitch tagName='Tag1' prefix={prefix} caption='Control A'></SSwitch>
-                            <SSwitch tagName='Tag1' prefix={prefix} caption='Control B'></SSwitch>
-                            <SSwitch tagName='Tag1' prefix={prefix} caption='Control DS'></SSwitch>
-                            <SSwitch tagName='Tag1' prefix={prefix} caption='Control MX'></SSwitch>
+                            <SSwitch tagName='M' prefix={prefix+"1"} caption='M'></SSwitch>
+                            <SSwitch tagName='MX' prefix={prefix+"1"} caption='MX'></SSwitch>
+                            <SSwitch tagName='A' prefix={prefix+"1"} caption='A'></SSwitch>
+                            <SSwitch tagName='B' prefix={prefix+"1"} caption='B'></SSwitch>
+                            
 
                         </CardContent>
                     </Card>
@@ -75,13 +75,11 @@ function MayEpVien() {
                     <Card className={classes.card}>
                         <CardContent >
                             <Typography variant='h6' className={classes.title}>MÁY ÉP VIÊN 2</Typography>
-                            <SSwitch tagName='Tag1' prefix={prefix} caption='Control M'></SSwitch>
-                            <SSwitch tagName='Tag1' prefix={prefix} caption='Control A'></SSwitch>
-                            <SSwitch tagName='Tag1' prefix={prefix} caption='Control B'></SSwitch>
-                            <SSwitch tagName='Tag1' prefix={prefix} caption='Control DS'></SSwitch>
-                            <SSwitch tagName='Tag1' prefix={prefix} caption='Control MX'></SSwitch>
-
-
+                            <SSwitch tagName='M' prefix={prefix+"2"} caption='M'></SSwitch>
+                            <SSwitch tagName='MX' prefix={prefix+"2"} caption='MX'></SSwitch>
+                            <SSwitch tagName='A' prefix={prefix+"2"} caption='A'></SSwitch>
+                            <SSwitch tagName='B' prefix={prefix+"2"} caption='B'></SSwitch>
+                            
                         </CardContent>
                     </Card>
                 </Grid>
@@ -95,12 +93,11 @@ function MayEpVien() {
                     <Card className={classes.card}>
                         <CardContent >
                             <Typography variant='h6' className={classes.title}>MÁY ÉP VIÊN 3</Typography>
-                            <SSwitch tagName='Tag1' prefix={prefix} caption='Control M'></SSwitch>
-                            <SSwitch tagName='Tag1' prefix={prefix} caption='Control A'></SSwitch>
-                            <SSwitch tagName='Tag1' prefix={prefix} caption='Control B'></SSwitch>
-                            <SSwitch tagName='Tag1' prefix={prefix} caption='Control DS'></SSwitch>
-                            <SSwitch tagName='Tag1' prefix={prefix} caption='Control MX'></SSwitch>
-
+                            <SSwitch tagName='M' prefix={prefix+"3"} caption='M'></SSwitch>
+                            <SSwitch tagName='MX' prefix={prefix+"3"} caption='MX'></SSwitch>
+                            <SSwitch tagName='A' prefix={prefix+"3"} caption='A'></SSwitch>
+                            <SSwitch tagName='B' prefix={prefix+"3"} caption='B'></SSwitch>
+                            
                         </CardContent>
                     </Card>
                 </Grid>
@@ -114,12 +111,11 @@ function MayEpVien() {
                     <Card className={classes.card}>
                         <CardContent >
                             <Typography variant='h6' className={classes.title}>MÁY ÉP VIÊN 4</Typography>
-                            <SSwitch tagName='Tag1' prefix={prefix} caption='Control M'></SSwitch>
-                            <SSwitch tagName='Tag1' prefix={prefix} caption='Control A'></SSwitch>
-                            <SSwitch tagName='Tag1' prefix={prefix} caption='Control B'></SSwitch>
-                            <SSwitch tagName='Tag1' prefix={prefix} caption='Control DS'></SSwitch>
-                            <SSwitch tagName='Tag1' prefix={prefix} caption='Control MX'></SSwitch>
-
+                            <SSwitch tagName='M' prefix={prefix+"4"} caption='M'></SSwitch>
+                            <SSwitch tagName='MX' prefix={prefix+"4"} caption='MX'></SSwitch>
+                            <SSwitch tagName='A' prefix={prefix+"4"} caption='A'></SSwitch>
+                            <SSwitch tagName='B' prefix={prefix+"4"} caption='B'></SSwitch>
+                            
                         </CardContent>
                     </Card>
                 </Grid>

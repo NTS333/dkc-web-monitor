@@ -30,7 +30,8 @@ const useStyles = makeStyles({
 
 function MayNghien() {
     const classes = useStyles();
-    const prefix = 'Local Station/Control/Device1'
+    const prefix_ntho = 'RemoteStation1/PLC_Control/NghienTho';
+    const prefix_ntinh= 'RemoteStation1/PLC_Control/NghienTinh';
     return (
         <div style={{ position: 'relative', margin: '0 auto', marginTop: 60,marginLeff:20,display:'flex',justifySelf:'center' }}>
             
@@ -53,9 +54,9 @@ function MayNghien() {
                     <Card className={classes.card}>
                         <CardContent >
                             <Typography variant='h6' className={classes.title}>MÁY NGHIỀN THÔ 1</Typography>
-                            <SSwitch tagName='Tag1' prefix={prefix} caption='ĐỘNG CƠ MÁY NGHIỀN'></SSwitch>
-                            <SSwitch tagName='Tag2' prefix={prefix} caption='ĐỘNG CƠ QUẠT HÚT'></SSwitch>
-                            <SSwitch tagName='Tag3' prefix={prefix} caption='ĐỘNG CƠ BĂNG TẢI'></SSwitch>
+                            <SSwitch tagName='MayNghien' prefix={prefix_ntho + '1'} caption='MÁY NGHIỀN'></SSwitch>
+                            <SSwitch tagName='BtCapLieu' prefix={prefix_ntho + '1'} caption='BĂNG TẢI CẤP LIỆU'></SSwitch>
+                            <SSwitch tagName='QuatHut' prefix={prefix_ntho + '1'} caption='QUẠT HÚT'></SSwitch>
                         </CardContent>
                     </Card>
                 </Grid>
@@ -69,9 +70,9 @@ function MayNghien() {
                     <Card className={classes.card}>
                         <CardContent >
                             <Typography variant='h6' className={classes.title}>MÁY NGHIỀN THÔ 2</Typography>
-                            <SSwitch tagName='Tag4' prefix={prefix} caption='ĐỘNG CƠ MÁY NGHIỀN'></SSwitch>
-                            <SSwitch tagName='Tag5' prefix={prefix} caption='ĐỘNG CƠ QUẠT HÚT'></SSwitch>
-                            <SSwitch tagName='Tag6' prefix={prefix} caption='ĐỘNG CƠ BĂNG TẢI'></SSwitch>
+                            <SSwitch tagName='MayNghien' prefix={prefix_ntho + '2'} caption='MÁY NGHIỀN'></SSwitch>
+                            <SSwitch tagName='BtCapLieu' prefix={prefix_ntho + '2'} caption='BĂNG TẢI CẤP LIỆU'></SSwitch>
+                            <SSwitch tagName='QuatHut' prefix={prefix_ntho + '2'} caption='QUẠT HÚT'></SSwitch>
                         </CardContent>
                     </Card>
                 </Grid>
@@ -86,9 +87,9 @@ function MayNghien() {
                     <Card className={classes.card}>
                         <CardContent >
                             <Typography variant='h6' className={classes.title}>MÁY NGHIỀN THÔ 3</Typography>
-                            <SSwitch tagName='Tag1' prefix={prefix} caption='ĐỘNG CƠ MÁY NGHIỀN'></SSwitch>
-                            <SSwitch tagName='Tag2' prefix={prefix} caption='ĐỘNG CƠ QUẠT HÚT'></SSwitch>
-                            <SSwitch tagName='Tag3' prefix={prefix} caption='ĐỘNG CƠ BĂNG TẢI'></SSwitch>
+                            <SSwitch tagName='MayNghien' prefix={prefix_ntho + '3'} caption='MÁY NGHIỀN'></SSwitch>
+                            <SSwitch tagName='BtCapLieu' prefix={prefix_ntho + '3'} caption='BĂNG TẢI CẤP LIỆU'></SSwitch>
+                            <SSwitch tagName='QuatHut' prefix={prefix_ntho + '3'} caption='QUẠT HÚT'></SSwitch>
                         </CardContent>
                     </Card>
                 </Grid>
@@ -103,9 +104,9 @@ function MayNghien() {
                     <Card className={classes.card}>
                         <CardContent >
                             <Typography variant='h6' className={classes.title}>MÁY NGHIỀN THÔ 4</Typography>
-                            <SSwitch tagName='Tag1' prefix={prefix} caption='ĐỘNG CƠ MÁY NGHIỀN'></SSwitch>
-                            <SSwitch tagName='Tag2' prefix={prefix} caption='ĐỘNG CƠ QUẠT HÚT'></SSwitch>
-                            <SSwitch tagName='Tag3' prefix={prefix} caption='ĐỘNG CƠ BĂNG TẢI'></SSwitch>
+                            <SSwitch tagName='MayNghien' prefix={prefix_ntho + '4'} caption='MÁY NGHIỀN'></SSwitch>
+                            <SSwitch tagName='BtCapLieu' prefix={prefix_ntho + '4'} caption='BĂNG TẢI CẤP LIỆU'></SSwitch>
+                            <SSwitch tagName='QuatHut' prefix={prefix_ntho + '4'} caption='QUẠT HÚT'></SSwitch>
                         </CardContent>
                     </Card>
                 </Grid>
@@ -121,9 +122,9 @@ function MayNghien() {
                     <Card className={classes.card}>
                         <CardContent >
                             <Typography variant='h6' className={classes.title}>MÁY NGHIỀN TINH 1</Typography>
-                            <SSwitch tagName='Tag1' prefix={prefix} caption='ĐỘNG CƠ MÁY NGHIỀN'></SSwitch>
-                            <SSwitch tagName='Tag2' prefix={prefix} caption='ĐỘNG CƠ QUẠT HÚT'></SSwitch>
-                            <SSwitch tagName='Tag3' prefix={prefix} caption='ĐỘNG CƠ BĂNG TẢI'></SSwitch>
+                            <SSwitch tagName='MayNghien' prefix={prefix_ntinh + '1'} caption='MÁY NGHIỀN'></SSwitch>
+                            <SSwitch tagName='VtCapLieu' prefix={prefix_ntinh + '1'} caption='VÍT TẢI CẤP LIỆU'></SSwitch>
+                            <SSwitch tagName='QuatHut' prefix={prefix_ntinh + '1'} caption='QUẠT HÚT'></SSwitch>
                         </CardContent>
                     </Card>
                 </Grid>
@@ -139,9 +140,11 @@ function MayNghien() {
                     <Card className={classes.card}>
                         <CardContent >
                             <Typography variant='h6' className={classes.title}>MÁY NGHIỀN TINH 2</Typography>
-                            <SSwitch tagName='Tag1' prefix={prefix} caption='ĐỘNG CƠ MÁY NGHIỀN'></SSwitch>
-                            <SSwitch tagName='Tag2' prefix={prefix} caption='ĐỘNG CƠ QUẠT HÚT'></SSwitch>
-                            <SSwitch tagName='Tag3' prefix={prefix} caption='ĐỘNG CƠ BĂNG TẢI'></SSwitch>
+                            <SSwitch tagName='MayNghien' prefix={prefix_ntinh + '2'} caption='MÁY NGHIỀN'></SSwitch>
+                            <SSwitch tagName='VtCapLieu' prefix={prefix_ntinh + '2'} caption='VÍT TẢI CẤP LIỆU'></SSwitch>
+                            <SSwitch tagName='QuatHut' prefix={prefix_ntinh + '2'} caption='QUẠT HÚT'></SSwitch>
+                            <SSwitch tagName='VTTG1' prefix={prefix_ntinh + '2'} caption='VÍT TẢI TRUNG GIAN 1'></SSwitch>
+                            <SSwitch tagName='VTTG2' prefix={prefix_ntinh + '2'} caption='VÍT TẢI TRUNG GIAN 2'></SSwitch>
                         </CardContent>
                     </Card>
                 </Grid>

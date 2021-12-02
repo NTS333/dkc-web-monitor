@@ -4,6 +4,7 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import * as Yup from 'yup';
 import { makeStyles } from '@material-ui/core/styles';
 import { useHistory } from 'react-router';
+import $ from "jquery";
 import {
     Paper,
     Box,
@@ -66,7 +67,15 @@ const Login = () => {
     const classes = useStyles();
 
     const onSubmit = data => {
-        console.log(JSON.stringify(data, null, 2));
+        window.setTimeout(() => {
+            var Status = $("#status");
+            console.log(Status);
+            if (window.isStarted) {
+              Status.css({ background: "green", color: "white" });
+              Status.html("Connected");
+
+            }
+          },0);
         history.replace('/dashboard')
 
     };
