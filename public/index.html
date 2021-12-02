@@ -287,7 +287,7 @@
           await serverHubProxy.server.getSubscribedData().done(function (res) {
             // console.log(res)
             // window.Subcribedtags = JSON.parse(res);
-            console.log(JSON.parse(res));
+            
             callback(JSON.parse(res));
           });
         }

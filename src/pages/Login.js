@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useForm, Controller } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as Yup from 'yup';
 import { makeStyles } from '@material-ui/core/styles';
 import { useHistory } from 'react-router';
 import $ from "jquery";
+import info  from '../info';
+
 import {
     Paper,
     Box,
@@ -16,7 +18,8 @@ import {
     Button,
     Container
 } from '@material-ui/core';
-
+import ToastNotification from '../components/ToastNotification';
+var bcrypt = require('bcryptjs');
 const useStyles = makeStyles((theme) => ({
     wrapper: {
         background: '#444343'
@@ -35,19 +38,24 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const Login = () => {
+    const [message, setMessage] = useState({
+        status: "error",
+        content: "",
+        action: false,
+      });
     const history = useHistory();
     const validationSchema = Yup.object().shape({
         // fullname: Yup.string().required('Fullname is required'),
         username: Yup.string()
             .required('Username is required')
-            .min(6, 'Username must be at least 6 characters')
+            .min(5, 'Username must be at least 5 characters')
             .max(20, 'Username must not exceed 20 characters'),
         // email: Yup.string()
         //     .required('Email is required')
         //     .email('Email is invalid'),
         password: Yup.string()
             .required('Password is required')
-            .min(6, 'Password must be at least 6 characters')
+            .min(5, 'Password must be at least 5 characters')
             .max(40, 'Password must not exceed 40 characters'),
         // confirmPassword: Yup.string()
         //     .required('Confirm Password is required')
@@ -76,10 +84,57 @@ const Login = () => {
 
             }
           },0);
-        history.replace('/dashboard')
+        let isSuccess = true;
+        var salt = bcrypt.genSaltSync(10);
+        var hash_us = bcrypt.hashSync("admin", salt);
+        var hash_pw = bcrypt.hashSync("admin", salt);
+        // localStorage.setItem('info',JSON.stringify({
+        //     usn:hash_us,
+        //     pw:hash_pw
+        // }));
+        bcrypt.compare(data.username, info.usn, function(err, res) {
+           if (res){
+            bcrypt.compare(data.password, info.pw, function(errPW, resPW) {
+                if (resPW){
+                    history.replace('/dashboard')
+                }
+                else
+                isSuccess = false;
+             });
+           }
+           else{
+            isSuccess = false;
+           }
+           handleOpen(isSuccess);
+
+        });
+        
 
     };
-
+    const handleOpen = (isSuccess) => {
+        isSuccess
+          ? setMessage({
+              status: "success",
+              content: "Đăng nhập thành công",
+              action: true,
+            })
+          : setMessage({
+              status: "error",
+              content: "Đăng nhập thất bại",
+              action: true,
+            });
+      };
+      const handleClose = (event, reason) => {
+        if (reason === "clickaway") {
+          return;
+        }
+        setMessage({
+          ...message,
+          content: "",
+          action: false,
+        });
+      };
+    
     return (
         <>
             <Grid
@@ -221,7 +276,11 @@ const Login = () => {
 
 
             </Grid>
-
+                <ToastNotification
+                message={message}
+                handleOpen={handleOpen}
+                handleClose={handleClose}
+            ></ToastNotification>
 
         </>
     );

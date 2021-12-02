@@ -81,7 +81,7 @@ function SSwitch({ tagName, prefix, value, caption }) {
 
   const ReadCallback = (subCribeTags) => {
     let tagPath = prefix + "/" + tagName.toString();
-    console.log(subCribeTags);
+   
     subCribeTags?.map((t) => {
       if (t.Path == tagPath) {
         setChecked(t.Value == "1" ? true : false);
