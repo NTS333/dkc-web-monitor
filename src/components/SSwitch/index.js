@@ -69,9 +69,9 @@ function SSwitch({ tagName, prefix, value, caption }) {
   useEffect(async () => {
     var getTagTimeer = setInterval(async () => {
       if (window.isStarted) window.getSubscribedData(ReadCallback);
-    //   var Status = $("#status");
-    //   Status.css({ background: "green", color: "white" });
-    //   Status.html("Connected");
+      var Status = $("#status");
+      Status.css({ background: "green", color: "white" });
+      Status.html("Connected");
     }, [1000]);
     return () => {
       // clearInterval(getTagTimeer);

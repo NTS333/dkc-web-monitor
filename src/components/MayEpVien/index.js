@@ -31,7 +31,7 @@ const useStyles = makeStyles({
 
 function MayEpVien() {
     const classes = useStyles();
-    const prefix = 'Local Station/PLC_Control/MayEp'
+    const prefix = 'RemoteStation1/PLC_Control/MayEp'
     return (
         <div style={{ position: 'relative', margin: '0 auto', marginTop: 60, marginLeff: 20, display: 'flex', justifySelf: 'center' }}>
 
@@ -59,6 +59,7 @@ function MayEpVien() {
                             <SSwitch tagName='MX' prefix={prefix+"1"} caption='MX'></SSwitch>
                             <SSwitch tagName='A' prefix={prefix+"1"} caption='A'></SSwitch>
                             <SSwitch tagName='B' prefix={prefix+"1"} caption='B'></SSwitch>
+                            <SSwitch tagName='ManOverCurrentM' prefix={prefix+"1"} caption='Man Over Current M'></SSwitch>
                             
 
                         </CardContent>
@@ -79,6 +80,7 @@ function MayEpVien() {
                             <SSwitch tagName='MX' prefix={prefix+"2"} caption='MX'></SSwitch>
                             <SSwitch tagName='A' prefix={prefix+"2"} caption='A'></SSwitch>
                             <SSwitch tagName='B' prefix={prefix+"2"} caption='B'></SSwitch>
+                            <SSwitch tagName='ManOverCurrentM' prefix={prefix+"2"} caption='Man Over Current M'></SSwitch>
                             
                         </CardContent>
                     </Card>
@@ -97,6 +99,7 @@ function MayEpVien() {
                             <SSwitch tagName='MX' prefix={prefix+"3"} caption='MX'></SSwitch>
                             <SSwitch tagName='A' prefix={prefix+"3"} caption='A'></SSwitch>
                             <SSwitch tagName='B' prefix={prefix+"3"} caption='B'></SSwitch>
+                            <SSwitch tagName='ManOverCurrentM' prefix={prefix+"3"} caption='Man Over Current M'></SSwitch>
                             
                         </CardContent>
                     </Card>
@@ -115,6 +118,7 @@ function MayEpVien() {
                             <SSwitch tagName='MX' prefix={prefix+"4"} caption='MX'></SSwitch>
                             <SSwitch tagName='A' prefix={prefix+"4"} caption='A'></SSwitch>
                             <SSwitch tagName='B' prefix={prefix+"4"} caption='B'></SSwitch>
+                            <SSwitch tagName='ManOverCurrentM' prefix={prefix+"4"} caption='Man Over Current M'></SSwitch>
                             
                         </CardContent>
                     </Card>
